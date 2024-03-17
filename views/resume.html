@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Yuri Website</title>
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+      />
+      <style>
+        #footer {
+            position: fixed;
+            left: 1%;
+            bottom: 0;
+        } 
+        #resume {
+          max-width: 70rem;
+          margin-bottom: 10%;
+          margin: 0 auto;
+        }
+
+        .home-link {
+          text-decoration: none;
+          font-size: xx-large;
+          color: blue;
+          font-weight: bold;
+          float: right;
+          margin-top: -50px;
+        }
+        th, td {
+          width: 33 rem 
+        }
+      </style>
+    </head>
+
+    <!-- use ul/li to do unordered lists -->
+  <body>
+    <nav class="navbar navbar-expand bg-light" id="navbar">
+      <div class="container-fluid d-flex">
+        <ul class="navbar-nav"> 
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./hobbies.html">Hobbies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./projects.html">Projects</a>
+          </li>
+        </ul>
+        <img class="ml-auto" id="nav-icon" src="../resources/img/icon.svg" alt="random-icon" width = "25" height="25">
+      </div>
+    </nav>
+</body>
+  <div id="resume">
+    <table class="striped">    
+      <thead>
+        <tr>
+          <h1 class="text-center">Resume</h1>
+          <a href="../views/home.html" class="home-link">Home</a>
+          <!-- <h2 class="text-center">Yuri Fung</h2> -->
+        </tr>
+      </thead>
+    </table>
+    <div class="row">
+      <div class="col">
+        <div class="card z-depth-5" style="background-color: #add8e6;">
+          <div class="card-content">
+            <h1 class="card-title mt-2 text-center">Yuri Fung</h1>
+            <h2 class="card-title mt-2">Education</h2>
+            <table class="striped">
+              <thead>
+                <tr>
+                  <th>Degree</th>
+                  <th>School</th>
+                  <th>Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-md-3">Bachelor's in Computer Science</td>
+                  <td class="col-md-3">University of Colorado Boulder</td>
+                  <td class="col-md-3">2022-2025</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul>
+              <li class="mt-2">             Coursework: Operating Systems, Algorithms, Database Systems, Data Science, Linear Algebra, Data Structures, Computer Systems, HCI, Discrete Math, Physics, Calculus (1,2,3), Critical Thinking, Astronomy, Water/Energy/Environment, Biology</li>
+              <li>            Spring 2024 Coursework: Software Development, Introduction to AI, Machine Learning, Principles to Programming Languages, Ethics, Technical Communication and Design, Introduction to Robotics</li>
+              <li>            Planning to take the Bachelor's Accelerated Masters Program starting Fall 2024</li>
+            </ul>
+            <h2 class="card-title mt-2">Experience</h2>
+            <table class="striped">
+
+              <thead>
+                <tr>
+                  <th class="mt-2">Costco</th>
+                  <th class="mt-2"></th>
+                  <th class="mt-2">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td class="col-md-5">
+                      <ul>
+                        <li class="mt-2"> Worked a variety of roles, including Cashier Assistant, Self-checkout, Carts, Stock, Bakery, Deli, Food Court, and Gas</li>
+                        <li>Delivered an unparalleled customer experience, affecting customers daily. Increasing customer retention and satisfaction.</li>
+                      </ul>
+                    </td>
+                    <td></td>
+                    <td class="col-md-5">2022-Current</td>
+                  </tr>
+                </tbody>
+              <thead>
+                <tr>
+                  <th>Piripi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-md-5">
+                    <ul>
+                      <li>Prepared and cooked Caribbean/Mediterranean food.</li>
+                      <li>Be lenient and work as a food prep and other sub jobs when needed.</li>
+                      <li>Work efficiently as a chef, and coordinate with others.</li>
+                    </ul>
+                  </td>
+                  <td></td>
+                  <td class="col-md-5">June 2021 -July 2022</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2 class="card-title mt-2">Skills</h2>
+            <ul>
+              <table class="striped">
+
+                <thead>
+                  <tr>
+                    <th class="mt-2">Programming Languages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td class="col-md-1">
+                        <ul>
+                          <li>C++, C, Java, Python, JavaScript, Assembly, Latex, Apple Script, R, SQL (NOSQL), Scala</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                <thead>
+                  <tr>
+                    <th class="mt-2">Other:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="col-md-1">
+                      <ul>
+                        <li>Jupyter Notebook, Figma, Docker, Airflow, Postgres, MongoDB, AWS Bedrock, Titan, VSCODE, VMWare, Virtual Box (Oracle), RStudio, Pycharm, Adobe Photoshop, Bash
+                          Applications/IDE:  Robotics (VEXCODE), Windows/OSX/Linux (Ubuntu), Google Suite, Microsoft Word/Excel, Google Workspace</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ul>
+            <h2 class="card-title mt-2">Volunteer</h2>
+            <ul>
+              <table class="striped">
+
+                <thead>
+                  <tr>
+                    <th class="mt-2">Japanese School of Denver</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td class="col-md-1">
+                        <ul>
+                          <li>Volunteered for 6 to 7 hours at Denver Japanese School every Sunday.</li>
+                          <li>Managed other volunteer members, prepared for class, taught students in class, lead and organized school events.</li>
+                          <li>500+ hours volunteered</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                <thead>
+                  <tr>
+                    <th class="mt-2">Westminster Youth Advisory Panel</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="col-md-1">
+                      <ul>
+                        <li>Assisted/attended/volunteered various events, assisted fundraising and food preparation for homeless</li>
+                        <li>Attended brainstorming event on improving environmental factors with the Mayor.</li>
+                        <li>Set up equipment for various events such as carnivals, dog pool party, Summit. Assisted Festival games for the city of Westminster. Worked with other members for the Summit, and lead groups of people from other schools.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>  
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+              
+
+
+  <footer class = "text-center" id="footer">
+      <div class = "row">
+        <div class = "col">
+          <a href="https://github.com/SUPERINTIALD">
+            <img id = "footer-icon" src = "../resources/img/github.svg" alt = "github link" width = "45" height="45">
+          </a>
+          <a href="https://www.linkedin.com/in/yuri-m-fung/">
+            <img id = "footer-icon" src = "../resources/img/LinkedIn.svg" alt = "LinkedIn link" width="55" height = "55">
+          </a>
+        </div>
+      </div>
+    </div>
+</footer>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
