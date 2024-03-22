@@ -11,15 +11,48 @@
       crossorigin="anonymous"
     />
     <style>
+      /* Custom styles */
+      body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+      }
+/* 
+      #navbar {
+        background-color: #343a40;
+      } */
+
+      .nav-link {
+        /* color: #fff; */
+        font-weight: bold;
+      }
+
+      #nav-icon {
+        /* filter: invert(1); */
+      }
+
+      #self-image {
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      #self-desc {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
       #footer {
-            position: fixed;
-            left: 1%;
-            bottom: 0;
-        } 
-        /* #projects{
-        margin-bottom: 20%;
-        margin-top: 20%;
-        } */
+        /* background-color: #343a40; */
+        color: #fff;
+        padding: 10px;
+        position: fixed;
+        left: 1%;
+        bottom: 0;
+        width: 100%;
+      }
+
+      #footer-icon {
+        margin: 5px;
+      }
     </style>
   </head>
 
@@ -44,34 +77,6 @@
         <img class="ml-auto" id="nav-icon" src="./resources/img/icon.svg" alt="random-icon" width = "25" height="25">
       </div>
     </nav>
-
-
-    <!-- <div id="carouselExampleIndicators" class="carousel slide">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="../resources/img/bowling.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../resources/img/Gym-structure-1080x675.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../resources/img/Rimuru.jpg" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div> -->
     <div class="container">
       <div id="projects" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div id = "carousel-bottom-indicators" class="carousel-indicators" style="bottom: -1rem">
@@ -82,7 +87,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div id = "carousel-item-1" class="card" >
-              <img src="../resources/img/project1.jpg" class="card-img" alt="...">
+              <img src="./resources/img/project1.jpg" class="card-img" alt="...">
               <div class="card-img-overlay">
                 <div class="text-bg">
                   <div class="text-center">
@@ -96,7 +101,7 @@
           </div>
           <div class="carousel-item">
             <div id = "carousel-item-2" class="card">
-              <img src="../resources/img/project2.svg" class="card-img" alt="...">
+              <img src="./resources/img/project2.svg" class="card-img" alt="...">
               <div class="card-img-overlay">
                 <div class="text-bg">
                   <div class=" text-center">
@@ -110,7 +115,7 @@
           </div>
           <div class="carousel-item">
             <div id = "carousel-item-3" class="card">
-              <img src="../resources/img/project3.webp" class="card-img" alt="...">
+              <img src="./resources/img/project3.webp" class="card-img" alt="...">
               <div class="card-img-overlay">
                 <div class="text-bg">
                   <div class="text-center">
@@ -138,10 +143,10 @@
         <div class = "row">
           <div class = "col">
             <a href="https://github.com/SUPERINTIALD">
-              <img id = "footer-icon" src = "../resources/img/github.svg" alt = "github link" width = "45" height="45">
+              <img id = "footer-icon" src = "./resources/img/github.svg" alt = "github link" width = "45" height="45">
             </a>
             <a href="https://www.linkedin.com/in/yuri-m-fung/">
-              <img id = "footer-icon" src = "../resources/img/LinkedIn.svg" alt = "LinkedIn link" width="55" height = "55">
+              <img id = "footer-icon" src = "./resources/img/LinkedIn.svg" alt = "LinkedIn link" width="55" height = "55">
             </a>
           </div>
         </div>

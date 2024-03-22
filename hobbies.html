@@ -11,11 +11,48 @@
       crossorigin="anonymous"
     />
     <style>
+      /* Custom styles */
+      body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+      }
+/* 
+      #navbar {
+        background-color: #343a40;
+      } */
+
+      .nav-link {
+        /* color: #fff; */
+        font-weight: bold;
+      }
+
+      #nav-icon {
+        /* filter: invert(1); */
+      }
+
+      #self-image {
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      #self-desc {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
       #footer {
-            position: fixed;
-            left: 1%;
-            bottom: 0;
-        } 
+        /* background-color: #343a40; */
+        color: #fff;
+        padding: 10px;
+        position: fixed;
+        left: 1%;
+        bottom: 0;
+        width: 100%;
+      }
+
+      #footer-icon {
+        margin: 5px;
+      }
     </style>
   </head>
 
@@ -49,7 +86,7 @@
         <div class="row">
             <div class = "col-md-4">
                 <div id="hobby-card-1" class="card"style="width: 25rem;">
-                    <img src = "../resources/img/Rimuru.jpg"class="card-img-top" alt="...">
+                    <img src = "./resources/img/Rimuru.jpg"class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3 class="card-title"> Manga/Anime 
                         </h3>
@@ -59,7 +96,7 @@
             </div>
             <div class = "col-md-4">
                 <div id="hobby-card-2" class="card"style="width: 25rem;">
-                    <img src = "../resources/img/bowling.jpg"class="card-img-top" alt="...">
+                    <img src = "./resources/img/bowling.jpg"class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3 class="card-title"> Bowling
                         </h3>
@@ -69,7 +106,7 @@
             </div>
             <div class = "col-md-4">
                 <div id="hobby-card-3" class="card"style="width: 25rem;">
-                    <img src = "../resources/img/Gym-structure-1080x675.png"class="card-img-top" alt="...">
+                    <img src = "./resources/img/Gym-structure-1080x675.png"class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3 class="card-title"> Gym/Fitness
                         </h3>
@@ -84,10 +121,10 @@
         <div class = "row">
           <div class = "col">
             <a href="https://github.com/SUPERINTIALD">
-              <img id = "footer-icon" src = "../resources/img/github.svg" alt = "github link" width = "45" height="45">
+              <img id = "footer-icon" src = "./resources/img/github.svg" alt = "github link" width = "45" height="45">
             </a>
             <a href="https://www.linkedin.com/in/yuri-m-fung/">
-              <img id = "footer-icon" src = "../resources/img/LinkedIn.svg" alt = "LinkedIn link" width="55" height = "55">
+              <img id = "footer-icon" src = "./resources/img/LinkedIn.svg" alt = "LinkedIn link" width="55" height = "55">
             </a>
           </div>
         </div>
