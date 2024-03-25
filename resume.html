@@ -69,10 +69,30 @@
           margin-top: -50px;
         }
 
-        th,
-        td {
+        th, td {
           width: 33rem;
         }
+
+        h2 {
+          background-color: #f8f8f8;
+          color: #000000; /* Assuming the text color, as it's not provided */
+          display: inline-block;
+          padding: 5px;
+          border-radius: 10px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+        /* th{
+          background-color: aliceblue;
+        } */
+        /* thead {
+          background-color: #f8f8f8;
+          width: 30%;
+          margin-top: 1%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        } */
+
         .degree-card {
           background-color: #add8e6;
         }
@@ -95,19 +115,19 @@
       </head>
 
           <!-- use ul/li to do unordered lists -->
-          <body>
-            <nav class="navbar navbar-expand bg-light" id="navbar">
-              <div class="container-fluid d-flex">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./hobbies.html">Hobbies</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./projects.html">Projects</a>
-                  </li>
+<body>
+  <nav class="navbar navbar-expand bg-light" id="navbar">
+    <div class="container-fluid d-flex">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./hobbies.html">Hobbies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="./projects.html">Projects</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Resume</a>
         </li>
@@ -130,11 +150,11 @@
     </thead>
   </table>
 
-
   <div class="row">
     <div class="col">
       <div class="card z-depth-5" style="background-color: #add8e6;">
         <div class="card-content">
+          
           <h2 class="card-title mt-2">Education</h2>
           <table class="striped">
             <thead>
@@ -156,7 +176,7 @@
         <table class="striped">
           <tbody>
               <tr>
-                <td class="col-md-5">
+                <td class="col-md-5" color="#D0D9CD">
                   <ul>
                     <li>Coursework: Operating Systems, Algorithms, Database Systems, Data Science, Linear Algebra, Data Structures, Computer Systems, HCI, Discrete Math, Physics, Calculus (1,2,3), Critical Thinking, Astronomy, Water/Energy/Environment, Biology</li>
                     <li>Spring 2024 Coursework: Software Development, Introduction to AI, Machine Learning, Principles to Programming Languages, Ethics, Technical Communication and Design, Introduction to Robotics</li>
@@ -172,15 +192,20 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="card z-depth-5" style="background-color: #ffc0cb;">
+      <div class="card z-depth-5" style="background-color: #ffcfcb;">
         <div class="card-content">
           <h2 class="card-title mt-2">Experience</h2>
           <table class="striped">
             <thead>
               <tr>
-                <th class="mt-2">Costco</th>
+                <th class="mt-2">Company</th>
                 <th class="mt-2"></th>
                 <th class="mt-2">Date</th>
+              </tr>
+            </thead>
+            <thead>
+              <tr>
+                <th>Costco</th>
               </tr>
             </thead>
             <tbody>
@@ -220,7 +245,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="card z-depth-5" style="background-color: #90ee90;">
+      <div class="card z-depth-5" style="background-color: #f0ee90;">
         <div class="card-content">
           <h2 class="card-title mt-2">Skills</h2>
           <ul>
@@ -261,7 +286,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="card z-depth-5" style="background-color: #fff;">
+      <div class="card z-depth-5" style="background-color: #D0D9CD;">
         <div class="card-content">
           <h2 class="card-title mt-2">Volunteer</h2>
           <ul>
