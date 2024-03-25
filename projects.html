@@ -53,6 +53,9 @@
       #footer-icon {
         margin: 5px;
       }
+      img.card-img {
+        height: 50%; 
+      }
     </style>
   </head>
 
@@ -77,6 +80,10 @@
         <img class="ml-auto" id="nav-icon" src="./resources/img/icon.svg" alt="random-icon" width = "25" height="25">
       </div>
     </nav>
+
+
+
+    <!-- start -->
     <div class="container">
       <div id="projects" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div id = "carousel-bottom-indicators" class="carousel-indicators" style="bottom: -1rem">
@@ -84,10 +91,13 @@
           <button type="button" data-bs-target="#projects" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#projects" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+
+
+
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div id = "carousel-item-1" class="card" >
-              <img src="./resources/img/project1.jpg" class="card-img" alt="...">
+              <img src="./resources/img/project1.jpg" class="card-img img-fluid" alt="...">
               <div class="card-img-overlay">
                 <div class="text-bg">
                   <div class="text-center">
@@ -101,7 +111,7 @@
           </div>
           <div class="carousel-item">
             <div id = "carousel-item-2" class="card">
-              <img src="./resources/img/project2.svg" class="card-img" alt="...">
+              <img src="./resources/img/project2.svg" class="card-img img-fluid" alt="...">
               <div class="card-img-overlay">
                 <div class="text-bg">
                   <div class=" text-center">
@@ -113,21 +123,21 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div id = "carousel-item-3" class="card">
-              <img src="./resources/img/project3.webp" class="card-img" alt="...">
-              <div class="card-img-overlay">
-                <div class="text-bg">
-                  <div class="text-center">
-                    <h5>Data science</h5>
-                    <p>Took a course for data science and did a project about linear regression for data training.</p>
-                    <a class="link-primary" href="https://github.com/SUPERINTIALD">Github Link</a>
+            <div class="carousel-item">
+              <div id="carousel-item-3" class="card">
+                <img src="./resources/img/project3.webp" class="card-img img-fluid" alt="...">
+                <div class="card-img-overlay">
+                  <div class="text-bg">
+                    <div class="text-center">
+                      <h5>Data science</h5>
+                      <p>Took a course for data science and did a project about linear regression for data training.</p>
+                      <a class="link-primary" href="https://github.com/SUPERINTIALD">Github Link</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
         <button id="carousel-prev"class="carousel-control-prev" type="button" data-bs-target="#projects" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
