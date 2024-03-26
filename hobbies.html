@@ -139,11 +139,61 @@
       <div class="row">
         <div class="col-md-4">
           <div id="hobby-card-7" class="card" style="width: 25rem;">
-            <img src="./resources/img/bowling.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h3 class="card-title"> Hobby 7
-              </h3>
-              <p class="card-text"> Description of hobby 7 </p>
+            <div class="container">
+              <div id="projects" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div id = "carousel-bottom-indicators" class="carousel-indicators" style="bottom: -1rem">
+                  <button type="button" data-bs-target="#projects" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#projects" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#projects" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+        
+                  <div class="carousel-item active">  
+                    <div id="carousel-item-1" class="card">
+                      <div class="text-bg text-center text-decoration-none">
+                        <h5 style="font-size: 18px; line-height: 1.2;">Operating Systems</h5>
+                        <p style="font-size: 14px; line-height: 1.5;">Implemented a multi-threading assignment using semaphores/mutexes</p>
+                        <a class="text-decoration-none" href="https://github.com/SUPERINTIALD/Operating_System_CSCI-3753/tree/main/CSCI%203753%20Operating%20Systems/Pa6/pa6">
+                          <img src="./resources/img/project1.jpg" class="card-img img-fluid" alt="...">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+        
+        
+                  <div class="carousel-item">
+                    <div id="carousel-item-2" class="card">
+                      <div class="text-bg text-center text-decoration-none">
+                        <h5 style="font-size: 18px; line-height: 1.2;">Blockchain</h5>
+                        <p style="font-size: 14px; line-height: 1.5;">Started a blockchain assignment that holds patient info.</p>
+                        <a class="text-decoration-none" href="https://github.com/SUPERINTIALD">
+                          <img src="./resources/img/project2.svg" class="card-img img-fluid" alt="...">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="carousel-item">
+                    <div id="carousel-item-3" class="card">
+                      <div class="text-bg text-center text-decoration-none">
+                        <h5 style="font-size: 18px; line-height: 1.2;">Data science</h5>
+                        <p style="font-size: 14px; line-height: 1.5;">Took a course for data science and did a project about linear regression for data training.</p>
+                        <a class="text-decoration-none" href="https://github.com/SUPERINTIALD">                
+                          <img src="./resources/img/datascigif.gif" class="card-img img-fluid" alt="..." width="200" height="200">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+        
+                <button id="carousel-prev"class="carousel-control-prev" type="button" data-bs-target="#projects" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button id="carousel-next"class="carousel-control-next" type="button" data-bs-target="#projects" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
             </div>
           </div>
         </div>
