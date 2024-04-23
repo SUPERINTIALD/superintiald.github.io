@@ -68,6 +68,18 @@
 
         th, td {
           width: 33rem;
+          
+        }
+        td {
+          border-radius: 10px;
+          padding: 5px ;
+          display: inline-block;
+
+          /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+        }
+        table{
+          border-radius: 10px;
+
         }
 
         h2 {
@@ -111,6 +123,18 @@
         body {
           background-color: #f0f0f0;
         }
+        thead {
+          background-color: #f8f8f8;
+          color: #000000; /* Assuming the text color, as it's not provided */
+          display: inline-block;
+          padding: 1px;
+          border-radius: 10px;
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+          margin-bottom: 1%;
+          margin-top: 1%;
+        }
+
+
         </style>
       </head>
 
@@ -157,13 +181,13 @@
           
           <h2 class="card-title mt-2">Education</h2>
           <table class="striped">
-            <thead>
+            <!-- <thead style="font: 1em sans-serif;"> -->
               <tr>
                 <th>Degree</th>
                 <th>School</th>
                 <th>Year</th>
               </tr>
-            </thead>
+            <!-- </thead> -->
             <tbody>
               <tr>
                 <td class="col-md-3">Bachelor's in Computer Science</td>
@@ -230,13 +254,13 @@
         <div class="card-content">
           <h2 class="card-title mt-2">Experience</h2>
           <table class="striped">
-            <thead>
+            <!-- <thead> -->
               <tr>
                 <th class="mt-2">Company</th>
                 <th class="mt-2"></th>
                 <th class="mt-2">Date</th>
               </tr>
-            </thead>
+            <!-- </thead> -->
             <thead>
               <tr>
                 <th>Costco</th>
@@ -291,7 +315,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="col-md-1">
+                  <td class="col-md-1" >
                     <ul>
                       <li>C++, C, Java, Python, JavaScript, Assembly, Latex, Apple Script, R, SQL (NOSQL), Scala</li>
                     </ul>
@@ -314,6 +338,168 @@
               </tbody>
             </table>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col">
+      <div class="card z-depth-5 rounded" style="background-color: #ffcfcb;">
+        <div class="card-content">
+          <h2 class="card-title mt-2">Projects</h2>
+          <table class="striped">
+            <!-- <thead> -->
+              <tr>
+                <th class="mt-2">Name</th>
+                <th class="mt-2"></th>
+                <th class="mt-2">Date</th>
+              </tr>
+            <!-- </thead> -->
+            <thead>
+              <tr>
+                <th>D4D</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5">
+                  <ul>
+                    <li class="mt-2">Collaborating with the military, to incorporate machine learning to projects, through the Air force, and Navy.
+                      <br>
+                      Air Force Project: Incorporate the boomer operation through the F-15 more efficiently without the need for humans.
+                      <br>
+                      Navy Project: Efficiently utilize energy for UUV's. Create an extended range system without the need for personnel to refuel. Ease the process of deployment and retrieval.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">2022-Current</td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th>Block-Chain Stellar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5">
+                  <ul>
+                   <li>Create an app that utilizes block-chain stellar. Planning to securely store client data for medical purposes.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">June 2021 - July 2022</td>
+              </tr>
+            </tbody>
+            
+            <thead>
+              <tr>
+                <th>HackCU, 
+                <em>Metanoia</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5"> 
+                  <ul>
+                   <li>Placed 1st in UI/UX route for 24 Hour Hackathon. Metanoia is a digital time-capsule that works by allowing a user to journal thoughts on thought-provoking prompts that cycle annually, so users can observe and reflect on their changes over time.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">June 2021 - July 2022</td>
+              </tr>
+            </tbody>
+
+            <thead>
+              <tr>
+                <th>T9 Hackathon, 
+                <em>Clothin in a can</em></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5"> 
+                  <ul>
+                    <li>24 Hour Hackathon. Clothin' in a Can: Designed a Sustainable, Compactable, Biodegradable Fashion Design.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">June 2021 - July 2022</td>
+              </tr>
+            </tbody>
+            
+            <thead>
+              <tr>
+                <th>Multithreading</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5"> 
+                  <ul>
+                    <li>Created a multithreading program utilizing semaphores and mutexes.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">June 2021 - July 2022</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>Mini Git</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5"> 
+                  <ul>
+                    <li>Recreated git with Linked Lists, Stacks, Queues, and Hash Maps in C++. It functions like git, where we can git commit, git branch, git init, git add, git push, as well as git clone.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">June 2021 - July 2022</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>Attack Lab</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5"> 
+                  <ul>
+                    <li>Used Assembly Code to applying a total of five buffer overflow attacks on some executable files. There are three code injection attacks and two return-oriented programming attacks.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">June 2021 - July 2022</td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>Performance Lab</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-md-5"> 
+                  <ul>
+                    <li>Made the program approximately 100x faster through multi-threading, signal masking. Reached 4 CPE in performance. The default code's original CPE was close to 3900 - 4000 CPE.</li>
+                  </ul>
+                </td>
+                <td></td>
+                <td class="col-md-5">June 2021 - July 2022</td>
+              </tr>
+            </tbody>
+
+
+          </table>
         </div>
       </div>
     </div>
