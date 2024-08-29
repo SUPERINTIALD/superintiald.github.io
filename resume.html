@@ -159,15 +159,15 @@
     </div>
   </nav>
     <div id="resume">
-        <div class="card-panel" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+        <div class="card-panel" style="color: #a6e1e3; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); ">
             <div class="toggle-buttons">
                 <button id="drive-button" class="btn btn-primary" onclick="toggleViewer('drive')">Google Drive</button>
                 <button id="pdf-button" class="btn btn-primary" onclick="toggleViewer('pdf')">PDF</button>
             </div>
-            <div id="drive-viewer">
+            <div id="drive-viewer"style="display: none;">
                 <iframe src="https://drive.google.com/file/d/1-AMI33_QqjC_v3FTHmap58GRaK5i3sFH/preview" width="100%" style="height: 80vh; border:none;"></iframe>
             </div>
-            <div id="pdf-viewer" style="display: none;">
+            <div id="pdf-viewer" >
                 <embed src="./resources/resume.pdf" type="application/pdf" width="100%" style="height: 80vh; border:none" />
             </div>
           
