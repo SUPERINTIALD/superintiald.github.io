@@ -82,42 +82,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
 // Initialize Typed.js - GLITCH
-    const typedElement = document.querySelector(".typed-glitch");
-    const reflectionElement = document.querySelector(".typed-glitch--reflection");
+    // const typedElement = document.querySelector(".typed-glitch");
+    // const reflectionElement = document.querySelector(".typed-glitch--reflection");
 
-    if (typedElement && reflectionElement) {
-        const typedStrings = typedElement.getAttribute("data-typed-items").split(",");
+    // if (typedElement && reflectionElement) {
+    //     const typedStrings = typedElement.getAttribute("data-typed-items").split(",");
         
-        // Initialize Typed.js
-        new Typed(".typed-glitch", {
-            strings: typedStrings,
-            typeSpeed: 100,
-            backSpeed: 50,
-            backDelay: 2000,
-            loop: true,
-            showCursor: false,
-            onStringTyped: (arrayPos, self) => {
-                // Update reflection text with completed string
-                reflectionElement.textContent = self.strings[arrayPos];
-                reflectionElement.setAttribute("data-text", self.strings[arrayPos]);
-            },
-            preStringTyped: (arrayPos, self) => {
-                reflectionElement.textContent = ""; // Clear reflection
-                typedElement.setAttribute("data-text", self.strings[arrayPos]); // Update main text
-            }
-        }
+    //     // Initialize Typed.js
+    //     new Typed(".typed-glitch", {
+    //         strings: typedStrings,
+    //         typeSpeed: 100,
+    //         backSpeed: 50,
+    //         backDelay: 2000,
+    //         loop: true,
+    //         showCursor: false,
+    //         onStringTyped: (arrayPos, self) => {
+    //             // Update reflection text with completed string
+    //             reflectionElement.textContent = self.strings[arrayPos];
+    //             reflectionElement.setAttribute("data-text", self.strings[arrayPos]);
+    //         },
+    //         preStringTyped: (arrayPos, self) => {
+    //             reflectionElement.textContent = ""; // Clear reflection
+    //             typedElement.setAttribute("data-text", self.strings[arrayPos]); // Update main text
+    //         }
+    //     }
     
-    );
-        new Typed(".typed-glitch--reflection", {
-            strings: typedStrings,
-            typeSpeed: 100,
-            backSpeed: 50,
-            backDelay: 2000,
-            loop: true,
-            showCursor: false,
-            // startDelay: -50, // No delay so it mirrors exactly
-        });
-    }
+    // );
+    //     new Typed(".typed-glitch--reflection", {
+    //         strings: typedStrings,
+    //         typeSpeed: 100,
+    //         backSpeed: 50,
+    //         backDelay: 2000,
+    //         loop: true,
+    //         showCursor: false,
+    //         // startDelay: -50, // No delay so it mirrors exactly
+    //     });
+    // }
 
 
 
