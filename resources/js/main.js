@@ -63,23 +63,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
   
 // Initialize Typed.js - GLITCH
-    const typedElement = document.querySelector('.typed');
-    if (typedElement) {
-        const typedStrings = typedElement.getAttribute('data-typed-items').split(',');
-        new Typed('.typed', {
+    const typedElement = document.querySelector(".typed-glitch");
+    const reflectionElement = document.querySelector(".typed-glitch--reflection");
+
+    if (typedElement && reflectionElement) {
+        const typedStrings = typedElement.getAttribute("data-typed-items").split(",");
+        
+        // Initialize Typed.js
+        new Typed(".typed-glitch", {
             strings: typedStrings,
             typeSpeed: 100,
             backSpeed: 50,
             backDelay: 2000,
             loop: true,
+            showCursor: false,
+            onStringTyped: (arrayPos, self) => {
+                // Update reflection text with completed string
+                reflectionElement.textContent = self.strings[arrayPos];
+                reflectionElement.setAttribute("data-text", self.strings[arrayPos]);
+            },
             preStringTyped: (arrayPos, self) => {
-                // Apply glitch effect dynamically by updating data-text attribute
-                typedElement.setAttribute('data-text', self.strings[arrayPos]);
-                typedElement.classList.add('typed-glitch'); // Add the glitch effect class
-            },
-            onComplete: () => {
-                typedElement.classList.remove('typed-glitch'); // Reset effect if needed
-            },
+                reflectionElement.textContent = ""; // Clear reflection
+                typedElement.setAttribute("data-text", self.strings[arrayPos]); // Update main text
+            }
+        });
+        new Typed(".typed-glitch--reflection", {
+            strings: typedStrings,
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 2000,
+            loop: true,
+            showCursor: false,
+            startDelay: 0, // No delay so it mirrors exactly
         });
     }
 

@@ -755,12 +755,18 @@
 
 /* Glitch effect */
 /* Glitch Effect */
-
+:root {
+  --translate-range: 5px; /* Range of translation */
+}
+.typed-glitch-wrapper {
+  position: relative;
+  /* display: inline-block; */
+}
 .typed-glitch {
   position: relative;
   color: var(--primary-color, #ffffff);
   font-weight: bold;
-  animation: glitch .7s infinite;
+  animation: glitch .3s infinite;
   font-size: 1.2em; /* Make text larger for emphasis */
   overflow: visible; /* Ensure text doesn't clip */
   white-space: nowrap; /* Prevent line breaks */
@@ -771,7 +777,7 @@
 .typed-glitch::after {
   content: attr(data-text);
   position: absolute;
-  top: 0;
+  top: -4px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -782,12 +788,50 @@
 }
 
 .typed-glitch::after {
-  color: #00ffea; /* Blue offset */
+  color: #0075f2; /* Blue offset */
   left: 2px;
   text-shadow: -2px 0 rgba(255, 0, 77, 0.5);
-  animation: glitch 0.8s infinite linear alternate-reverse;
+  animation: glitch 0.6s infinite linear alternate;
+}
+/* Add Water-Like Reflection Below */
+.typed-glitch--reflection {
+  position: absolute;
+  top: 100%; /* Position below the original text */
+  left: 0;
+  width: 100%; /* Match the font size */
+  /* color: rgba(0, 255, 234, 0.2); Semi-transparent neon for reflection */
+  transform: scaleY(-1) translateY(20); /* Flip and move down */
+  filter: blur(3px); /* Blur for watery effect */
+  opacity: 1;
+  animation: glitch-reflection 0.4s infinite alternate;
+  clip: auto;
+  overflow: visible; /* Ensure text doesn't clip */
+  white-space: nowrap; /* Prevent line breaks */
+
+}
+.typed-glitch--reflection::before,
+.typed-glitch--reflection::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.5;
+  clip: rect(0, 900px, 0, 0);
 }
 
+.typed-glitch--reflection::before {
+  color: rgba(255, 0, 77, 0.4); /* Red offset for reflection */
+  animation: glitch 0.6s infinite linear alternate;
+}
+
+.typed-glitch--reflection::after {
+  color: rgba(0, 117, 242, 0.4); /* Blue offset for reflection */
+  left: 2px;
+  text-shadow: -2px 0 rgba(0, 117, 242, 0.5);
+  animation: glitch 0.6s infinite linear alternate;
+}
 /* Glitch Animation */
 @keyframes glitch {
   0% {
@@ -803,7 +847,7 @@
   16% {
       clip: rect(20px, 100vw, 50px, 0);
       transform: translate(calc(var(--translate-range) * -0.7), calc(var(--translate-range) * 0.7));
-      color: var(--color3);
+      color: var(--color1);
   }
   24% {
       clip: rect(30px, 100vw, 60px, 0);
@@ -847,12 +891,34 @@
   }
   88% {
       clip: rect(80px, 100vw, 60px, 0);
-      transform: translate(calc(var(--translate-range) * 0.2), calc(var(--translate-range) * -0.2));
+      transform: translate(calc(var(--translate-range) * 0.2*10), calc(var(--translate-range) * -0.2));
       color: var(--color2);
   }
   100% {
       clip: rect(10px, 100vw, 40px, 0);
       transform: translate(0px, 0px);
       color: var(--color1);
+  }
+}
+@keyframes glitch-reflection {
+  0% {
+      transform: scaleY(-1) translateY(22px) translateX(0px); /* Position slightly below */
+      opacity: 0.4;
+  }
+  25% {
+      transform: scaleY(-1) translateY(22px) translateX(-1px); /* Shift left */
+      opacity: 1.3;
+  }
+  50% {
+      transform: scaleY(-1) translateY(23px) translateX(1px); /* Shift right */
+      opacity: 0.4;
+  }
+  75% {
+      transform: scaleY(-1) translateY(24px) translateX(-1px); /* Shift back left */
+      opacity: 0.35;
+  }
+  100% {
+      transform: scaleY(-1) translateY(22px) translateX(0px); /* Reset */
+      opacity: 0.5;
   }
 }
