@@ -45,6 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     });
+
+
+
+    const scrollToTopBtn1 = document.querySelector(".scroll-to-top-btn");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) { // Adjust 300 to control when it appears
+        scrollToTopBtn1.classList.add("visible");
+        } else {
+        scrollToTopBtn1.classList.remove("visible");
+        }
+    });
+
+    scrollToTopBtn1.addEventListener("click", () => {
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+        });
+    });
     // Initialize Typed.js
     // const typedElement = document.querySelector('.typed');
     // if (typedElement) {
