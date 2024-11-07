@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const typedStrings = typedElementR.getAttribute('data-typed-items').split(',');
         new Typed('.typed', {
             strings: typedStrings,
-            typeSpeed: 100,
-            backSpeed: 50,
+            typeSpeed: 30,
+            backSpeed: 30,
             backDelay: 2000,
             loop: true,
             loopCount: Infinity,
