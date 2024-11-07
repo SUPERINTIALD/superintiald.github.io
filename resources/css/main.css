@@ -534,6 +534,41 @@
       margin-bottom: 20px;
   }
 }
+.about-details ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-details li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 0; /* Adds some spacing between each item */
+}
+
+.about-details li > b {
+  min-width: 120px; /* Adjust width as needed to align content */
+  padding-right: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* .about-details li > b::after {
+  content: ':';
+} */
+
+.about-details li > a {
+  color: #006666; /* Adjust link color if needed */
+  text-decoration: none;
+}
+
+.about-details li > a:hover {
+  text-decoration: underline;
+}
+
+
 
   
   /*--------------------------------------------------------------

@@ -14,6 +14,7 @@
     <link href="resources/vendors/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="resources/vendors/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="resources/vendors/node_modules/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="resources/vendors/node_modules/@coreui/icons/css/all.css" rel="stylesheet">    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -36,7 +37,10 @@
           </ul>
         </nav>
       </header>
-      <button id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top">Top</button>
+      <button id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top">
+        <i class="bi bi-arrow-up-circle"></i>
+    </button>
+      <!-- <button id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top">Top</button> -->
 
       <main class="main">
     
@@ -99,26 +103,31 @@
               
               </p>
               <div class="row about-details">
+                <!-- Personal Links -->
                 <div class="col-lg-6">
+                    <h4>Online Profiles</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a href="https://superintiald.github.io/">https://superintiald.github.io/</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/yuri-m-fung/">https://www.linkedin.com/in/yuri-m-fung/</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>GitHub:</strong> <span><a href="https://github.com/SUPERINTIALD">https://github.com/SUPERINTIALD</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>X:</strong> <span><a href="https://x.com/yur1chantan">https://x.com/yur1chantan</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Facebook:</strong> <span><a href="https://www.facebook.com/yur1chantan">https://www.facebook.com/yur1chantan</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Instagram:</strong> <span><a href="https://www.instagram.com/yurichantan/">https://www.instagram.com/yurichantan/</a></span></li>
+                        <li><i class="bi bi-globe"></i><b><strong>Website</strong></b>:<a href="https://superintiald.github.io/" target="_blank">superintiald.github.io</a></li>
+                        <li><i class="bi bi-linkedin"></i><b><strong>LinkedIn</strong></b>: <a href="https://www.linkedin.com/in/yuri-m-fung/" target="_blank">yuri-m-fung</a></li>
+                        <li><i class="bi bi-github"></i><b><strong>GitHub</strong></b>: <a href="https://github.com/SUPERINTIALD" target="_blank">SUPERINTIALD</a></li>
+                        <li><i class="bi bi-twitter"></i><b><strong>X</strong></b>:<a href="https://x.com/yur1chantan" target="_blank">@yur1chantan</a></li>
+                        <li><i class="bi bi-facebook"></i><b><strong>Facebook</strong></b>:<a href="https://www.facebook.com/yur1chantan" target="_blank">yur1chantan</a></li>
+                        <li><i class="bi bi-instagram"></i><b><strong>Instagram</strong></b>:<a href="https://www.instagram.com/yurichantan/" target="_blank">@yurichantan</a></li>
+                        <li><i class="cib-leetcode"></i><b><strong>LeetCode</strong></b>: <span><a href="https://leetcode.com/u/SuperInitialD/" target="_blank">SuperInitialD</a></span></li>                   
+                        <li><i class="cib-hackerrank"></i><b><strong>Hackerrank</strong></b>: <span><a href="https://www.hackerrank.com/profile/fung_yuri_intern" target="_blank">fung_yuri_intern</a></span></li>                   
+
                     </ul>
                 </div>
-                <div class="col-lg-6">
+                <!-- Personal Details -->
+                <div class="col-lg-6 about-details">
+                    <h4>Personal Information</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Major:</strong> <span>Computer Science</span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Pursuing Bachelor's &amp; Master's</span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>fung.yuri.intern@gmail.com</span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>720-345-9145 &amp; 815-200-9874</span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>State:</strong> <span>Colorado, USA</span></li>
+                        <li><i class="bi bi-mortarboard"></i> <b><strong>Major</strong></b>: <span>Computer Science</span></li>
+                        <li><i class="bi bi-journal-text"></i> <b><strong>Degree</strong></b>: <span>Pursuing Bachelor's &amp; Master's</span></li>
+                        <li><i class="bi bi-envelope"></i> <b><strong>Email</strong></b>: <span>fung.yuri.intern@gmail.com</span></li>
+                        <li><i class="bi bi-geo-alt"></i> <b><strong>State</strong></b>: <span>Colorado, USA</span></li>
                     </ul>
                 </div>
-            </div>
             
             <p class="about-description">
                 I am a dedicated and passionate software developer with a strong background in software development. I have experience working with HTML, CSS, JavaScript, and various frameworks like Bootstrap. I am constantly learning and exploring new technologies to enhance my skills and stay up-to-date with industry trends. I enjoy collaborating with teams and solving complex problems to deliver high-quality solutions. In my free time, I like to work on personal coding projects and contribute to open-source communities.

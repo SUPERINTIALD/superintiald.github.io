@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@coreui/icons": "^3.0.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
