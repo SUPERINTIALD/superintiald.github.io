@@ -595,13 +595,14 @@
   border-left: 2px solid var(--accent-color); /* Restored left border line */
   position: relative;
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
 
 
 }
 .resume .resume-item:hover {
   transform: scale(1.05); /* Slightly scales up the element */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  border-radius: 5px;
 }
 
 .resume .resume-item:hover::before {
