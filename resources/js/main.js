@@ -86,7 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 reflectionElement.textContent = ""; // Clear reflection
                 typedElement.setAttribute("data-text", self.strings[arrayPos]); // Update main text
             }
-        });
+        }
+    
+    );
         new Typed(".typed-glitch--reflection", {
             strings: typedStrings,
             typeSpeed: 100,
@@ -94,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             backDelay: 2000,
             loop: true,
             showCursor: false,
-            startDelay: 0, // No delay so it mirrors exactly
+            // startDelay: -50, // No delay so it mirrors exactly
         });
     }
 

@@ -590,10 +590,22 @@
 .resume .resume-item {
   padding: 0 0 20px 25px;
   margin-top: 10px;
+  margin-bottom: 10px;
   border-left: 2px solid var(--accent-color); /* Restored left border line */
   position: relative;
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+
+}
+.resume .resume-item:hover {
+  transform: scale(1.05); /* Slightly scales up the element */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+}
+
+.resume .resume-item:hover::before {
+  opacity: 1;
+  box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); /* Creates a glow around the border */
 }
 
 .resume .resume-item h4 {
