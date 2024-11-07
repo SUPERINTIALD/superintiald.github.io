@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     AOS.init({
         duration: 600,
         easing: 'ease-in-out',
-        once: true,
+        once: false, //if scroll back up it will animate again
         mirror: false
     });
 
@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             scrollToTopBtn.style.display = 'none';
         }
+        // Reinitialize AOS when scrolling back to the top
+        if (window.scrollY === 0) {
+            AOS.refresh();
+        }
     });
 
     scrollToTopBtn.addEventListener('click', () => {
@@ -42,6 +46,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     // Initialize Typed.js
+    // const typedElement = document.querySelector('.typed');
+    // if (typedElement) {
+    //     const typedStrings = typedElement.getAttribute('data-typed-items').split(',');
+    //     new Typed('.typed', {
+    //         strings: typedStrings,
+    //         typeSpeed: 100,
+    //         backSpeed: 50,
+    //         backDelay: 2000,
+    //         loop: true,
+    //         loopCount: Infinity,
+    //         showCursor: true,
+    //         cursorChar: '|',
+    //         autoInsertCss: true
+    //     });
+    // }
+  
+// Initialize Typed.js - GLITCH
     const typedElement = document.querySelector('.typed');
     if (typedElement) {
         const typedStrings = typedElement.getAttribute('data-typed-items').split(',');
@@ -51,13 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
             backSpeed: 50,
             backDelay: 2000,
             loop: true,
-            loopCount: Infinity,
-            showCursor: true,
-            cursorChar: '|',
-            autoInsertCss: true
+            preStringTyped: (arrayPos, self) => {
+                // Apply glitch effect dynamically by updating data-text attribute
+                typedElement.setAttribute('data-text', self.strings[arrayPos]);
+                typedElement.classList.add('typed-glitch'); // Add the glitch effect class
+            },
+            onComplete: () => {
+                typedElement.classList.remove('typed-glitch'); // Reset effect if needed
+            },
         });
     }
-  
+
+
+
+
+
+
+
+
+
+
     const navmenulinks = document.querySelectorAll('.navmenu a');
     let activeLink = null; // To keep track of the currently active link
 
@@ -94,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Scrollspy on load and on scroll with debounce
     window.addEventListener('load', updateActiveNavLink);
-    document.addEventListener('scroll', debounce(updateActiveNavLink, 1));
+    document.addEventListener('scroll', debounce(updateActiveNavLink, 15));
 
 
 });
