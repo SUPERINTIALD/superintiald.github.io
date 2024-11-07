@@ -65,21 +65,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     // Initialize Typed.js
-    // const typedElement = document.querySelector('.typed');
-    // if (typedElement) {
-    //     const typedStrings = typedElement.getAttribute('data-typed-items').split(',');
-    //     new Typed('.typed', {
-    //         strings: typedStrings,
-    //         typeSpeed: 100,
-    //         backSpeed: 50,
-    //         backDelay: 2000,
-    //         loop: true,
-    //         loopCount: Infinity,
-    //         showCursor: true,
-    //         cursorChar: '|',
-    //         autoInsertCss: true
-    //     });
-    // }
+    const typedElementR = document.querySelector('.typed');
+    if (typedElementR) {
+        const typedStrings = typedElementR.getAttribute('data-typed-items').split(',');
+        new Typed('.typed', {
+            strings: typedStrings,
+            typeSpeed: 100,
+            backSpeed: 50,
+            backDelay: 2000,
+            loop: true,
+            loopCount: Infinity,
+            showCursor: true,
+            cursorChar: '|',
+            autoInsertCss: true
+        });
+    }
   
 // Initialize Typed.js - GLITCH
     const typedElement = document.querySelector(".typed-glitch");
