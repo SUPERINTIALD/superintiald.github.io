@@ -502,7 +502,7 @@
   /* background-color: color-mix(in srgb, var(--default-color), transparent 95%); */
   padding: 20px;
   border-radius: 8px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -567,10 +567,10 @@
 .about-details li > a:hover {
   text-decoration: underline;
 }
-
+/* 
 .about-details{
-  margin-bottom: 200px;
-}
+  margin-bottom: px;
+} */
 
 /*--------------------------------------------------------------
 # Resume Section
@@ -715,10 +715,48 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
   }
-  
+  /* Image profile*/
   #self-image {
+    max-width: 100%; /* Ensures the image doesn’t exceed its container */
+    height: auto;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 1024px) {
+  .about .content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  #self-image {
+    width: 300px; /* Reduce the image width */
+    margin-bottom: 20px;
+  }
+  
+  /* Padding adjustments for text */
+  .col-lg-8.content {
+    padding: 0 10px;
+  }
+}
+  @media (max-width: 768px) {
+    #self-image {
+      width: 250px; /* Further reduce image size on small screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    #self-image {
+      width: 200px; /* Reduce image size even more on very small screens */
+    }
+  
+    .about .section-title h2 {
+      font-size: 24px;
+    }
+  
+    .about-details ul li {
+      font-size: 14px; /* Adjust text size */
+    }
   }
  /*--------------------------------------------------------------
   # Scroll Button
