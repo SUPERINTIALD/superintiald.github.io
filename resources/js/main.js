@@ -286,4 +286,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // // Shuffle items every 10 seconds
     // setInterval(shuffleItems, 10000);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // GALLARYOVERLAY
+    // JavaScript code to handle the opening and closing of the gallery overlay
+    function openGallery(projectId) {
+        const overlay = document.getElementById(projectId);
+        if (overlay) {
+            overlay.style.display = 'flex'; // Display overlay when clicked
+        }
+    }
+
+    function closeGallery() {
+        const overlays = document.querySelectorAll('.gallery-overlay');
+        overlays.forEach(overlay => {
+            overlay.style.display = 'none'; // Hide all overlays
+        });
+    }
+
+    // Ensure these functions are in the global scope
+    window.openGallery = openGallery;
+    window.closeGallery = closeGallery;
+
 });
