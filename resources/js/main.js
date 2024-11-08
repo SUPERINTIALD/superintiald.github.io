@@ -166,21 +166,59 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', updateActiveNavLink);
     document.addEventListener('scroll', debounce(updateActiveNavLink, 15));
 
-
-
-    // Portfolio:
+// portfolio
     const filterButtons = document.querySelectorAll(".filter-btn");
-    const portfolioItems = document.querySelectorAll(".portfolio-item");
+    const portfolioGrid = document.querySelector(".portfolio-grid");
+    const portfolioItems = Array.from(portfolioGrid.children);
 
+    portfolioItems.forEach(item => {
+        item.classList.add("show");
+        item.style.display = "block";
+    });
+    // Filtering Functionality
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
             const filter = button.getAttribute("data-filter");
+
             filterButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
 
             portfolioItems.forEach(item => {
-                item.style.display = filter === "*" || item.classList.contains(filter.substring(1)) ? "block" : "none";
+                if (filter === "*" || item.classList.contains(filter.substring(1))) {
+                    item.style.display = "block";
+                    setTimeout(() => item.classList.add("show"), 10);
+                } else {
+                    item.classList.remove("show");
+                    setTimeout(() => item.style.display = "none", 300);
+                }
             });
         });
     });
+
+    // Shuffling Function
+    function shuffleItems() {
+        for (let i = portfolioItems.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [portfolioItems[i], portfolioItems[j]] = [portfolioItems[j], portfolioItems[i]];
+        }
+
+        // Append shuffled items back to the grid
+        portfolioItems.forEach(item => portfolioGrid.appendChild(item));
+    }
+
+    // Shuffle items every 10 seconds (optional)
+    setInterval(shuffleItems, 10000); // Adjust time as needed
+
+
+
+    let currentRotation = 0;
+
+    function rotateFilters() {
+        currentRotation += 72; // Rotate by 72 degrees (360/5 buttons)
+        document.querySelector('.circular-menu').style.transform = `rotate(${currentRotation}deg)`;
+        document.querySelectorAll('.circular-menu .filter-btn').forEach((btn) => {
+            btn.style.transform = `rotate(${-currentRotation}deg) translate(100px) rotate(${currentRotation}deg)`;
+        });
+    }
+
 });
