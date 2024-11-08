@@ -167,4 +167,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('scroll', debounce(updateActiveNavLink, 15));
 
 
+
+    // Portfolio:
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            portfolioItems.forEach(item => {
+                item.style.display = filter === "*" || item.classList.contains(filter.substring(1)) ? "block" : "none";
+            });
+        });
+    });
 });
