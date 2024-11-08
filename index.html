@@ -184,7 +184,7 @@
             <div class="portfolio-grid">
                 <!-- Project items go here -->
 
-                <div class="portfolio-item web-development ai applications professional" onclick="openGallery('perfectHomeFinder')">
+                <div class="portfolio-item web-development ai applications professional" data-gallery-id="perfectHomeFinder">
                     <img src="resources/img/project1.jpg" alt="PerfectHomeFinder" />
                     <div class="overlay">
                         <h4>PerfectHomeFinder</h4>
@@ -201,7 +201,7 @@
                 </div>
                 
                 <!-- AI & Professional Example -->
-                <div class="portfolio-item ai professional" onclick="openGallery('data2Paper')">
+                <div class="portfolio-item ai professional" data-gallery-id="data2Paper">
                     <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper" />
                     <div class="overlay">
                         <h4>Data2Paper</h4>
@@ -290,6 +290,57 @@
     
 
     <!-- Gallery Overlay for PerfectHomeFinder -->
+     <!-- Gallery Overlay -->
+
+
+<!-- Gallery Overlays -->
+            
+    <!-- Gallery Overlays -->
+    <div id="perfectHomeFinder" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>PerfectHomeFinder</h3>
+                <p>Real-time home searching app using AI and data-driven APIs</p>
+                <div class="gallery-images">
+                    <img src="resources/img/project1.jpg" alt="HomeFinder Slide 1">
+                    <img src="resources/img/project1-2.jpg" alt="HomeFinder Slide 2">
+                    <img src="resources/img/project1-3.jpg" alt="HomeFinder Slide 3">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="data2Paper" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Data2Paper</h3>
+                <p>Automated data-to-paper solution for research professionals.</p>
+                <div class="gallery-images">
+                    <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2">
+                    <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3></h3>
+                <p></p>
+                <div class="gallery-images"></div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+
     <div id="perfectHomeFinder" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
@@ -301,21 +352,21 @@
                 <img src="resources/img/project1-3.jpg" alt="HomeFinder Slide 3">
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Gallery Overlay for Data2Paper -->
-    <div id="data2Paper" class="gallery-overlay">
+    <!-- <div id="data2Paper" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
             <h3>Data2Paper</h3>
             <p>Automated data-to-paper solution for research professionals.</p>
-            <div class="gallery-images">
+            <div class="gallery-images"> -->
                 <!-- <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large"> -->
-                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
+                <!-- <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
                 <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

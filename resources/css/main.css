@@ -1109,6 +1109,20 @@
     pointer-events: none; /* Prevent interactions while hidden */
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /* Gallery overlay styles */
 .gallery-overlay {
   display: none;
@@ -1135,7 +1149,23 @@
   flex-direction: column;
   align-items: center;
 }
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
 
+.gallery-arrow-left {
+  left: 10px;
+}
+
+.gallery-arrow-right {
+  right: 10px;
+}
 /* Close button */
 .close-button {
   position: absolute;
@@ -1213,4 +1243,12 @@
 /* Add a hover effect */
 .gallery-grid img:hover {
   transform: scale(1.05);
+}
+/* Gallery Images */
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  max-width: 100%;
+  padding: 20px;
 }
