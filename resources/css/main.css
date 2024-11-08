@@ -1025,7 +1025,7 @@
   border-radius: 10px;
 }
 
-.portfolio-item .overlay {
+/* .portfolio-item .overlay {
   position: absolute;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
@@ -1039,8 +1039,39 @@
 
 .portfolio-item:hover .overlay {
   opacity: 1;
+} */
+.portfolio-item .overlay {
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start outside the viewport */
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the left */
+  text-align: left;
+  transition: transform 0.4s ease-in-out;
+  opacity: 0; /* Hide by default */
 }
 
+.portfolio-item:hover .overlay {
+  opacity: 1;
+  transform: translateX(100%); /* Slide in from the side */
+}
+
+/* Overlay Text Styling */
+.overlay h4 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1em;
+}
 /* Filter Button Bar */
 .filters {
   display: flex;
