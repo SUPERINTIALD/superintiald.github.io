@@ -349,6 +349,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.closeGallery = closeGallery;
     window.navigateLeft = navigateLeft;
     window.navigateRight = navigateRight;
+
+        // Function to close the gallery when clicking outside of gallery-content
+    // document.addEventListener('click', function(event) {
+    //     const galleryOverlay = document.querySelectorAll('.gallery-overlay');
+    //     galleryOverlay.forEach(overlay => {
+    //         if (overlay.style.display === 'flex' && !overlay.querySelector('.gallery-content').contains(event.target)) {
+    //             closeGallery();
+    //         }
+    //     });
+    // });
+    // Function to close the gallery when clicking outside of gallery-content
+    document.querySelectorAll('.gallery-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(event) {
+            if (!event.target.closest('.gallery-content')) {
+                closeGallery();
+            }
+        });
+    });
+
+
     // Ensure these functions are in the global scope
     // const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item"));
     // const galleryOverlay = document.querySelector(".gallery-overlay");
