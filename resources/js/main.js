@@ -299,27 +299,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-    // GALLARYOVERLAY
+    // GALLERYOVERLAY
     // JavaScript code to handle the opening and closing of the gallery overlay
+
     const galleryOverlays = Array.from(document.querySelectorAll(".gallery-overlay"));
     let currentGalleryId = null;
+    let slideInterval;
 
+    // Function to open a specific gallery by ID and start the slideshow
     function openGallery(galleryId) {
-        closeAllGalleries();
+        closeAllGalleries(); // Close any open galleries first
         currentGalleryId = galleryId;
         document.getElementById(galleryId).style.display = "flex";
+        
+        startSlideshow(); // Start the slideshow when gallery is opened
     }
 
+    // Function to close the currently open gallery and stop the slideshow
     function closeGallery() {
-        document.getElementById(currentGalleryId).style.display = "none";
-        currentGalleryId = null;
+        if (currentGalleryId) {
+            document.getElementById(currentGalleryId).style.display = "none";
+            stopSlideshow(); // Stop the slideshow when gallery is closed
+            currentGalleryId = null;
+        }
     }
 
+    // Function to close all galleries
     function closeAllGalleries() {
         galleryOverlays.forEach(overlay => overlay.style.display = "none");
     }
 
+    // Slideshow control functions
+    // function startSlideshow() {
+    //     stopSlideshow(); // Clear any existing intervals
+    //     slideInterval = setInterval(navigateRight, 3000); // Advance every 3 seconds
+    // }
+
+    // function stopSlideshow() {
+    //     clearInterval(slideInterval);
+    // }
+
+    // Navigation functions
     function navigateLeft() {
         const currentIndex = galleryOverlays.findIndex(overlay => overlay.id === currentGalleryId);
         const prevIndex = (currentIndex - 1 + galleryOverlays.length) % galleryOverlays.length;
@@ -332,34 +352,23 @@ document.addEventListener('DOMContentLoaded', () => {
         openGallery(galleryOverlays[nextIndex].id);
     }
 
-//     function openGallery(projectId) {
-//         const overlay = document.getElementById(projectId);
-//         if (overlay) {
-//             overlay.style.display = 'flex'; // Display overlay when clicked
-//         }
-//     }
+    // Event listener for arrow key navigation
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "ArrowLeft") {
+            navigateLeft();
+        } else if (event.key === "ArrowRight") {
+            navigateRight();
+        }
+    });
 
-//     function closeGallery() {
-//         const overlays = document.querySelectorAll('.gallery-overlay');
-//         overlays.forEach(overlay => {
-//             overlay.style.display = 'none'; // Hide all overlays
-//         });
-//     }
-    window.openGallery = openGallery;
-    window.closeGallery = closeGallery;
-    window.navigateLeft = navigateLeft;
-    window.navigateRight = navigateRight;
+    // Pause the slideshow on hover over the gallery container
+    // const galleryContainer = document.querySelector('.gallery-images'); // Adjust selector if needed
+    // if (galleryContainer) {
+    //     galleryContainer.addEventListener('mouseenter', stopSlideshow);
+    //     galleryContainer.addEventListener('mouseleave', startSlideshow);
+    // }
 
-        // Function to close the gallery when clicking outside of gallery-content
-    // document.addEventListener('click', function(event) {
-    //     const galleryOverlay = document.querySelectorAll('.gallery-overlay');
-    //     galleryOverlay.forEach(overlay => {
-    //         if (overlay.style.display === 'flex' && !overlay.querySelector('.gallery-content').contains(event.target)) {
-    //             closeGallery();
-    //         }
-    //     });
-    // });
-    // Function to close the gallery when clicking outside of gallery-content
+    // Function to close the gallery when clicking outside of gallery content
     document.querySelectorAll('.gallery-overlay').forEach(overlay => {
         overlay.addEventListener('click', function(event) {
             if (!event.target.closest('.gallery-content')) {
@@ -367,6 +376,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Expose functions to the global scope
+    window.openGallery = openGallery;
+    window.closeGallery = closeGallery;
+    window.navigateLeft = navigateLeft;
+    window.navigateRight = navigateRight;
+    
+
     
 
 
