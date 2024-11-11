@@ -367,6 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
 
 
     // Ensure these functions are in the global scope
