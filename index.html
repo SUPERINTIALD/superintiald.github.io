@@ -14,6 +14,7 @@
     <link href="resources/vendors/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="resources/vendors/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="resources/vendors/node_modules/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="resources/vendors/node_modules/@coreui/icons/css/all.css" rel="stylesheet">    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -28,15 +29,20 @@
     <header id="header" class="header d-flex flex-column justify-content-center">
         <i class="header-toggle d-xl-none bi bi-list"></i>
         <nav id="navmenu" class="navmenu">
-          <ul>
-            <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-            <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
-            <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
-            <!-- <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li> -->
-          </ul>
+            <ul>
+                <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+                <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+                <!-- <li><a href="#profile"><i class="bi bi-card-image navicon"></i><span>Portfolio</span></a></li> -->
+                <li><a href="#portfolio"><i class="bi bi-briefcase navicon"></i><span>Portfolio</span></a></li>
+                <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
+
+            </ul>
         </nav>
       </header>
-      <button id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top">Top</button>
+      <button id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top">
+        <i class="bi bi-arrow-up-circle"></i>
+    </button>
+      <!-- <button id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top">Top</button> -->
 
       <main class="main">
     
@@ -49,7 +55,18 @@
             <div class="row justify-content-center">
               <div class="col-lg-9">
                 <h2>Yuri Fung</h2>
-                <p>I'm a <span class="typed" data-typed-items="Computer Scientist, Software Engineer, Web Developer, Data Analyst"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+                <!-- <p>I'm a <span class="typed" data-typed-items="Computer Scientist, Software Engineer, Web Developer, Data Analyst, AI Enthusiast"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p> -->
+                 <!-- <p>I'm a <span class="typed typed-glitch" data-typed-items="Computer Scientist, Software Engineer, Web Developer, Data Analyst, AI Enthusiast" data-text=""></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p> -->
+                 <p>
+                    I'm a 
+                    <span class="typed-glitch-wrapper">
+                        <span class="typed-glitch" data-typed-items="Computer Scientist, Software Engineer, Web Developer, Data Analyst, AI Enthusiast"></span>
+                        <span class="typed-glitch--reflection" aria-hidden="true"></span>
+                    </span>
+                </p>
+                
+                
+                
                 <div class="social-links">
                   <a href="https://x.com/yur1chantan" target="_blank"><i class="bi bi-twitter-x"></i></a>
                   <a href="https://www.facebook.com/yur1chantan" target = "_blank"><i class="bi bi-facebook" target="_blank"></i></a>
@@ -69,21 +86,8 @@
         <div class="container section-title" data-aos="fade-up">
             <h2>About</h2>
             <div class="section-divider"></div> <!-- Divider below the heading -->
-            <div class="content">
-                <p>
-                    I am a <em>passionate software developer</em> with a strong focus on web development. I have experience working with <strong>HTML, CSS, JavaScript</strong>, and various frameworks like <strong>Bootstrap</strong>. I enjoy creating <em>user-friendly</em> and <em>visually appealing websites</em> that provide a great user experience. Additionally, I am also interested in <strong>artificial intelligence</strong> and exploring its applications in web development.
-                </p>
-                <p>
-                    I have also taken courses in <strong>artificial intelligence</strong> and <strong>machine learning</strong>, which have allowed me to gain a deeper understanding of these fields. I have learned about <em>algorithms and techniques</em> used in AI and ML, and I am excited to apply this knowledge to develop intelligent and data-driven web applications.
-                </p>
-                <p>
-                    I have taken courses in <strong>operating systems</strong> and <strong>multithreading</strong>, where I learned about concepts such as <em>process management, thread synchronization,</em> and <em>memory management</em>. I also studied <strong>cache optimization</strong> techniques to improve performance in computer systems. These courses have provided me with a solid foundation in <strong>system-level programming</strong> and <strong>problem-solving</strong>.
-                </p>
-                <p>
-                    I am extremely <em>passionate about learning</em> and constantly strive to expand my knowledge and skills. I enjoy taking on new challenges and am a <strong>fast learner</strong>, able to quickly adapt to new technologies and programming languages. This adaptability allows me to stay up-to-date with the latest industry trends and deliver <em>high-quality solutions</em> to complex problems.
-                </p>
-            </div>
-        </div><!-- End Section Title -->
+        </div>
+        <!-- End Section Title -->
   
         <div class="container" data-aos="fade-up" data-aos-delay="100">
   
@@ -99,52 +103,320 @@
               
               </p>
               <div class="row about-details">
+                <!-- Personal Links -->
                 <div class="col-lg-6">
+                    <h4>Online Profiles</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a href="https://superintiald.github.io/">https://superintiald.github.io/</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <span><a href="https://www.linkedin.com/in/yuri-m-fung/">https://www.linkedin.com/in/yuri-m-fung/</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>GitHub:</strong> <span><a href="https://github.com/SUPERINTIALD">https://github.com/SUPERINTIALD</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>X:</strong> <span><a href="https://x.com/yur1chantan">https://x.com/yur1chantan</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Facebook:</strong> <span><a href="https://www.facebook.com/yur1chantan">https://www.facebook.com/yur1chantan</a></span></li>
-                        <li><i class="bi bi-chevron-right"></i> <strong>Instagram:</strong> <span><a href="https://www.instagram.com/yurichantan/">https://www.instagram.com/yurichantan/</a></span></li>
+                        <li><i class="bi bi-globe"></i><b><strong>Website</strong></b>:<a href="https://superintiald.github.io/" target="_blank">superintiald.github.io</a></li>
+                        <li><i class="bi bi-linkedin"></i><b><strong>LinkedIn</strong></b>: <a href="https://www.linkedin.com/in/yuri-m-fung/" target="_blank">yuri-m-fung</a></li>
+                        <li><i class="bi bi-github"></i><b><strong>GitHub</strong></b>: <a href="https://github.com/SUPERINTIALD" target="_blank">SUPERINTIALD</a></li>
+                        <li><i class="bi bi-twitter"></i><b><strong>X</strong></b>:<a href="https://x.com/yur1chantan" target="_blank">@yur1chantan</a></li>
+                        <li><i class="bi bi-facebook"></i><b><strong>Facebook</strong></b>:<a href="https://www.facebook.com/yur1chantan" target="_blank">yur1chantan</a></li>
+                        <li><i class="bi bi-instagram"></i><b><strong>Instagram</strong></b>:<a href="https://www.instagram.com/yurichantan/" target="_blank">@yurichantan</a></li>
+                        <li><i class="cib-leetcode"></i><b><strong>LeetCode</strong></b>: <span><a href="https://leetcode.com/u/SuperInitialD/" target="_blank">SuperInitialD</a></span></li>                   
+                        <li><i class="cib-hackerrank"></i><b><strong>Hackerrank</strong></b>: <span><a href="https://www.hackerrank.com/profile/fung_yuri_intern" target="_blank">fung_yuri_intern</a></span></li>                   
+
                     </ul>
                 </div>
-                <div class="col-lg-6">
+                <!-- Personal Details -->
+                <div class="col-lg-6 about-details">
+                    <h4>Personal Information</h4>
                     <ul>
+<<<<<<< HEAD
                         <li><i class="bi bi-chevron-right"></i> <strong>Major:</strong> <span>Computer Science</span></li>
                         <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Pursuing Bachelor's &amp; Master's</span></li>
                         <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>fung.yuri.intern@gmail.com</span></li>
                         <!-- <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>720-345-9145 &amp; 815-200-9874</span></li> -->
                         <li><i class="bi bi-chevron-right"></i> <strong>State:</strong> <span>Colorado, USA</span></li>
+=======
+                        <li><i class="bi bi-mortarboard"></i> <b><strong>Major</strong></b>: <span>Computer Science</span></li>
+                        <li><i class="bi bi-journal-text"></i> <b><strong>Degree</strong></b>: <span>Pursuing Bachelor's &amp; Master's</span></li>
+                        <li><i class="bi bi-envelope"></i> <b><strong>Email</strong></b>: <span>fung.yuri.intern@gmail.com</span></li>
+                        <li><i class="bi bi-geo-alt"></i> <b><strong>State</strong></b>: <span>Colorado, USA</span></li>
+>>>>>>> d626fa3a18193a31810c813043918238ed73f3d2
                     </ul>
                 </div>
-            </div>
             
-            <p class="about-description">
+            <!-- <p class="about-description">
                 I am a dedicated and passionate software developer with a strong background in software development. I have experience working with HTML, CSS, JavaScript, and various frameworks like Bootstrap. I am constantly learning and exploring new technologies to enhance my skills and stay up-to-date with industry trends. I enjoy collaborating with teams and solving complex problems to deliver high-quality solutions. In my free time, I like to work on personal coding projects and contribute to open-source communities.
-            </p>
+            </p> -->
             
             </div>
           </div>
+          <div class="content">
+            <p>
+                I am a dedicated and passionate software developer with a strong background in web development, specializing in creating responsive, user-friendly, and visually appealing experiences. Skilled in HTML, CSS, JavaScript, and frameworks like Bootstrap, I continuously explore new technologies and industry trends to enhance my skills. My interest in artificial intelligence and machine learning drives me to apply AI algorithms in web development, developing intelligent, data-driven solutions. Additionally, I have a solid foundation in system-level programming, including operating systems, multithreading, and performance optimization. I thrive on collaboration, problem-solving, and adapting to new challenges, ensuring I deliver high-quality, modern solutions. In my free time, I enjoy working on personal projects and contributing to open-source communities.</p>
+            <!-- <p>I am a dedicated software developer specializing in web development with a focus on creating user-friendly, visually appealing experiences. Skilled in HTML, CSS, JavaScript, and frameworks like Bootstrap, I build responsive websites that prioritize user experience.
+
+                My interest in artificial intelligence and machine learning drives me to explore innovative applications in web development. I’ve gained hands-on knowledge in AI algorithms and techniques and am excited to develop intelligent, data-driven web solutions.
+                
+                Additionally, I bring a solid foundation in system-level programming, having studied operating systems, multithreading, and performance optimization. I’m passionate about continuous learning, adapting quickly to new technologies and challenges to deliver effective, modern solutions.</p> -->
+            <!-- <p>
+                I am a <em>passionate software developer</em> with a strong focus on web development. I have experience working with <strong>HTML, CSS, JavaScript</strong>, and various frameworks like <strong>Bootstrap</strong>. I enjoy creating <em>user-friendly</em> and <em>visually appealing websites</em> that provide a great user experience. Additionally, I am also interested in <strong>artificial intelligence</strong> and exploring its applications in web development.
+            </p>
+            <p>
+                I have also taken courses in <strong>artificial intelligence</strong> and <strong>machine learning</strong>, which have allowed me to gain a deeper understanding of these fields. I have learned about <em>algorithms and techniques</em> used in AI and ML, and I am excited to apply this knowledge to develop intelligent and data-driven web applications.
+            </p>
+            <p>
+                I have taken courses in <strong>operating systems</strong> and <strong>multithreading</strong>, where I learned about concepts such as <em>process management, thread synchronization,</em> and <em>memory management</em>. I also studied <strong>cache optimization</strong> techniques to improve performance in computer systems. These courses have provided me with a solid foundation in <strong>system-level programming</strong> and <strong>problem-solving</strong>.
+            </p>
+            <p>
+                I am extremely <em>passionate about learning</em> and constantly strive to expand my knowledge and skills. I enjoy taking on new challenges and am a <strong>fast learner</strong>, able to quickly adapt to new technologies and programming languages. This adaptability allows me to stay up-to-date with the latest industry trends and deliver <em>high-quality solutions</em> to complex problems.
+            </p> -->
+          </div>
+        </div>
   
         </div>
   
-    </section><!-- /About Section -->
+    </section>
+    <!-- END/About Section -->
+
+
+    <!-- Portfolio Section START -->
+    <section id="portfolio" class="portfolio section">
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Portfolio</h2>
+            <div class="section-divider"></div> <!-- Divider below the heading -->
+        </div>
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <!-- Filter Buttons -->
+            <div class="filters text-center mb-4">
+                <button data-filter="*" class="filter-btn">All</button>
+                <button data-filter=".web-development" class="filter-btn">Web Development</button>
+                <button data-filter=".ai" class="filter-btn">AI & Machine Learning</button>
+                <button data-filter=".applications" class="filter-btn">Applications</button>
+                <button data-filter=".professional" class="filter-btn">Professional Experience</button>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Project items go here -->
+
+                <div class="portfolio-item web-development ai applications professional" data-gallery-id="perfectHomeFinder">
+                    <img src="resources/img/project1.jpg" alt="PerfectHomeFinder" />
+                    <div class="overlay">
+                        <h4>PerfectHomeFinder</h4>
+                        <p>Real-time home searching app using AI and data-driven APIs</p>
+                    </div>
+                </div>                
+                <!-- Web Development & Applications Example -->
+                <div class="portfolio-item web-development applications">
+                    <img src="resources/img/datascigif copy.gif" alt="SportSphere" />
+                    <div class="overlay">
+                        <h4>SportSphere</h4>
+                        <p>Sports betting tracker with user authentication and live sports data.</p>
+                    </div>
+                </div>
+                
+                <!-- AI & Professional Example -->
+                <div class="portfolio-item ai professional" data-gallery-id="data2Paper">
+                    <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper" />
+                    <div class="overlay">
+                        <h4>Data2Paper</h4>
+                        <p>Automated data-to-paper solution for research professionals.</p>
+                    </div>
+                </div>
+
+                <!-- AI & Applications Example -->
+                <div class="portfolio-item ai applications">
+                    <img src="resources/img/project3.webp" alt="NLP App" />
+                    <div class="overlay">
+                        <h4>NLP Web Application</h4>
+                        <p>Language processing web app using GPT-4 for sentiment analysis and text generation.</p>
+                    </div>
+                </div>
+
+                <!-- Applications & Professional Example -->
+                <div class="portfolio-item applications professional">
+                    <img src="resources/img/Rimuru.jpg" alt="Trimble Project" />
+                    <div class="overlay">
+                        <h4>Trimble Project</h4>
+                        <p>Data-to-paper project for Trimble, integrating advanced machine learning models.</p>
+                    </div>
+                </div>
+                
+                <!-- Professional & AI Example -->
+                <div class="portfolio-item professional ai">
+                    <img src="resources/img/bowling.jpg" alt="Metanoia Project" />
+                    <div class="overlay">
+                        <h4>Metanoia - Hackathon Project</h4>
+                        <p>Chrome extension for journaling and personal reflection, awarded 1st place in UI/UX category.</p>
+                    </div>
+                </div>
+                
+                <!-- Standalone Example (Single Category) -->
+                <div class="portfolio-item web-development">
+                    <img src="resources/img/Intro-HELLO-FUTURE-1920x1080_v2.gif" alt="Website Project" />
+                    <div class="overlay">
+                        <h4>Responsive Website</h4>
+                        <p>A fully responsive website built with HTML, CSS, and Bootstrap for a seamless user experience across devices.</p>
+                    </div>
+                </div>
+
+                <!-- Add other project items similarly -->
+                 <!-- Idea for carosel -->
+                  
+                <!-- Carosel start end -->
+                <!-- <div class="portfolio-item web-development ai applications professional">
+                    <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="resources/img/page_flipping_data_to_paper.gif" class="d-block w-100" alt="PerfectHomeFinder">
+                                <div class="overlay">
+                                    <h4>PerfectHomeFinder</h4>
+                                    <p>Real-time home searching app using AI and data-driven APIs</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="resources/img/data_to_paper_process.gif" class="d-block w-100" alt="Data2Paper">
+                                <div class="overlay">
+                                    <h4>Data2Paper</h4>
+                                    <p>Automated data-to-paper solution for research professionals</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+                    <div class="overlay">
+                        <h4>PerfectHomeFinder</h4>
+                        <p>Real-time home searching app using AI and data-driven APIs</p>
+                    </div>
+                </div> -->
+                <!-- carosel1 end -->
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Gallery Overlay for PerfectHomeFinder -->
+     <!-- Gallery Overlay -->
+
+
+<!-- Gallery Overlays -->
+            
+    <!-- Gallery Overlays -->
+    <div id="perfectHomeFinder" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>PerfectHomeFinder</h3>
+                <p>Real-time home searching app using AI and data-driven APIs</p>
+                <div class="gallery-images">
+                    <img src="resources/img/project1.jpg" alt="HomeFinder Slide 1">
+                    <img src="resources/img/project1-2.jpg" alt="HomeFinder Slide 2">
+                    <img src="resources/img/project1-3.jpg" alt="HomeFinder Slide 3">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="data2Paper" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Data2Paper</h3>
+                <p>Automated data-to-paper solution for research professionals.</p>
+                <div class="gallery-images">
+                    <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2">
+                    <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3></h3>
+                <p></p>
+                <div class="gallery-images"></div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="perfectHomeFinder" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <h3>PerfectHomeFinder</h3>
+            <p>Real-time home searching app using AI and data-driven APIs</p>
+            <div class="gallery-images">
+                <img src="resources/img/project1.jpg" alt="HomeFinder Slide 1">
+                <img src="resources/img/project1-2.jpg" alt="HomeFinder Slide 2">
+                <img src="resources/img/project1-3.jpg" alt="HomeFinder Slide 3">
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Gallery Overlay for Data2Paper -->
+    <!-- <div id="data2Paper" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <h3>Data2Paper</h3>
+            <p>Automated data-to-paper solution for research professionals.</p>
+            <div class="gallery-images"> -->
+                <!-- <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large"> -->
+                <!-- <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
+                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <!-- Resume Section -->
     <!-- Resume Section -->
     <section id="resume" class="resume section">
 
         <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
+        <div class="container section-title" data-aos="fade-up" data-aos-delay="100">
             <h2>Resume</h2>
             <p>A highly motivated and detail-oriented Computer Science student at CU Boulder with experience in software development, cybersecurity, and machine learning.</p>
+            <div class="section-divider"></div>
         </div><!-- End Section Title -->
 
         <div class="container">
             <div class="row">
 
                 <!-- Left Column: Education, Professional Experience, Leadership and Activities, Skills -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
                     <h3 class="resume-title">Education & Honors</h3>
                     
                     <div class="resume-item pb-0">
@@ -215,7 +487,7 @@
                 </div>
 
                 <!-- Right Column: Projects -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
                     <h3 class="resume-title">Projects</h3>
 
                     <div class="resume-item">
@@ -327,6 +599,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </main>
 
 
@@ -362,10 +655,15 @@
     <script src="resources/vendors/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="resources/vendors/node_modules/glightbox/dist/js/glightbox.min.js"></script>
     <script src="resources/vendors/node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
     <!-- <script src="resources/vendors/node_modules/typed-js/core/index.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    
     <script src="resources/js/main.js"></script>
+    
 
 </body>
 </html>
