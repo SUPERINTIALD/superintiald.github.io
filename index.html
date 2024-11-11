@@ -122,6 +122,11 @@
                 <div class="col-lg-6 about-details">
                     <h4>Personal Information</h4>
                     <ul>
+                        <li><i class="bi bi-chevron-right"></i> <strong>Major:</strong> <span>Computer Science</span></li>
+                        <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Pursuing Bachelor's &amp; Master's</span></li>
+                        <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>fung.yuri.intern@gmail.com</span></li>
+                        <!-- <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>720-345-9145 &amp; 815-200-9874</span></li> -->
+                        <li><i class="bi bi-chevron-right"></i> <strong>State:</strong> <span>Colorado, USA</span></li>
                         <li><i class="bi bi-mortarboard"></i> <b><strong>Major</strong></b>: <span>Computer Science</span></li>
                         <li><i class="bi bi-journal-text"></i> <b><strong>Degree</strong></b>: <span>Pursuing Bachelor's &amp; Master's</span></li>
                         <li><i class="bi bi-envelope"></i> <b><strong>Email</strong></b>: <span>fung.yuri.intern@gmail.com</span></li>
@@ -184,7 +189,9 @@
             <div class="portfolio-grid">
                 <!-- Project items go here -->
 
-                <div class="portfolio-item web-development ai applications professional" data-gallery-id="perfectHomeFinder">
+                <!-- <div class="portfolio-item web-development ai applications professional" data-gallery-id="perfectHomeFinder"> -->
+                <div class="portfolio-item web-development ai applications professional" onclick="openGallery('perfectHomeFinder')">
+
                     <img src="resources/img/project1.jpg" alt="PerfectHomeFinder" />
                     <div class="overlay">
                         <h4>PerfectHomeFinder</h4>
@@ -192,7 +199,7 @@
                     </div>
                 </div>                
                 <!-- Web Development & Applications Example -->
-                <div class="portfolio-item web-development applications" data-gallery-id="sportSphere">
+                <div class="portfolio-item web-development applications">
                     <img src="resources/img/datascigif copy.gif" alt="SportSphere" />
                     <div class="overlay">
                         <h4>SportSphere</h4>
@@ -201,7 +208,9 @@
                 </div>
                 
                 <!-- AI & Professional Example -->
-                <div class="portfolio-item ai professional" data-gallery-id="data2Paper">
+                <div class="portfolio-item ai professional" onclick="openGallery('data2Paper')">
+
+                <!-- <div class="portfolio-item ai professional" data-gallery-id="data2Paper"> -->
                     <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper" />
                     <div class="overlay">
                         <h4>Data2Paper</h4>
@@ -210,7 +219,7 @@
                 </div>
 
                 <!-- AI & Applications Example -->
-                <div class="portfolio-item ai applications" data-gallery-id="nlpApp">
+                <div class="portfolio-item ai applications" onclick="openGallery('nlpApp')">
                     <img src="resources/img/project3.webp" alt="NLP App" />
                     <div class="overlay">
                         <h4>NLP Web Application</h4>
@@ -219,7 +228,7 @@
                 </div>
 
                 <!-- Applications & Professional Example -->
-                <div class="portfolio-item applications professional" data-gallery-id="trimbleProject">
+                <div class="portfolio-item applications professional" onclick="openGallery('trimble')">
                     <img src="resources/img/Rimuru.jpg" alt="Trimble Project" />
                     <div class="overlay">
                         <h4>Trimble Project</h4>
@@ -228,7 +237,7 @@
                 </div>
                 
                 <!-- Professional & AI Example -->
-                <div class="portfolio-item professional ai" data-gallery-id="metanoiaProject">
+                <div class="portfolio-item professional ai" onclick="openGallery('metanoia')">
                     <img src="resources/img/bowling.jpg" alt="Metanoia Project" />
                     <div class="overlay">
                         <h4>Metanoia - Hackathon Project</h4>
@@ -237,7 +246,7 @@
                 </div>
                 
                 <!-- Standalone Example (Single Category) -->
-                <div class="portfolio-item web-development" data-gallery-id="responsiveWebsite">
+                <div class="portfolio-item web-development" onclick="openGallery('website')">
                     <img src="resources/img/Intro-HELLO-FUTURE-1920x1080_v2.gif" alt="Website Project" />
                     <div class="overlay">
                         <h4>Responsive Website</h4>
@@ -294,20 +303,9 @@
 
 
 <!-- Gallery Overlays -->
-<!-- <div class="gallery-overlay">
-    <span class="close-button" onclick="closeGallery()">&times;</span>
-    <div class="gallery-content">
-        <div class="gallery-navigation">
-            <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
-            <h3></h3>
-            <p></p>
-            <div class="gallery-images"></div>
-            <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
-        </div>
-    </div>
-</div> -->
+            
     <!-- Gallery Overlays -->
-    <div id="perfectHomeFinder" class="gallery-overlay">
+    <!-- <div id="perfectHomeFinder" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
             <div class="gallery-navigation">
@@ -338,7 +336,7 @@
                 <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- <div class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
@@ -350,8 +348,7 @@
                 <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
             </div>
         </div>
-    </div>
-
+    </div>-->
     <div id="perfectHomeFinder" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
@@ -363,108 +360,67 @@
                 <img src="resources/img/project1-3.jpg" alt="HomeFinder Slide 3">
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- Gallery Overlay for Data2Paper -->
-    <!-- <div id="data2Paper" class="gallery-overlay">
+    <div id="data2Paper" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
             <h3>Data2Paper</h3>
             <p>Automated data-to-paper solution for research professionals.</p>
-            <div class="gallery-images"> -->
-                <!-- <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large"> -->
-                <!-- <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
+            <div class="gallery-images">
+                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
                 <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
             </div>
         </div>
-    </div> -->
-
-
-
-<!-- Gallery Overlay for SportSphere -->
-<div id="sportSphere" class="gallery-overlay">
-    <span class="close-button" onclick="closeGallery()">&times;</span>
-    <div class="gallery-content">
-        <div class="gallery-navigation">
-            <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
-            <h3>SportSphere</h3>
-            <p>Sports betting tracker with user authentication and live sports data.</p>
-            <div class="gallery-images">
-                <img src="resources/img/datascigif_copy.gif" alt="SportSphere Slide 1">
-                <img src="resources/img/sportsphere2.jpg" alt="SportSphere Slide 2">
-            </div>
-            <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
-        </div>
     </div>
-</div>
 
-<!-- Gallery Overlay for NLP Web Application -->
-<div id="nlpApp" class="gallery-overlay">
-    <span class="close-button" onclick="closeGallery()">&times;</span>
-    <div class="gallery-content">
-        <div class="gallery-navigation">
-            <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+    <div id="nlpApp" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
             <h3>NLP Web Application</h3>
+
             <p>Language processing web app using GPT-4 for sentiment analysis and text generation.</p>
             <div class="gallery-images">
-                <img src="resources/img/project3.webp" alt="NLP App Slide 1">
-                <img src="resources/img/nlp_app2.jpg" alt="NLP App Slide 2">
+                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
+                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
             </div>
-            <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
         </div>
     </div>
-</div>
 
-<!-- Gallery Overlay for Trimble Project -->
-<div id="trimbleProject" class="gallery-overlay">
-    <span class="close-button" onclick="closeGallery()">&times;</span>
-    <div class="gallery-content">
-        <div class="gallery-navigation">
-            <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+    <div id="trimble" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
             <h3>Trimble Project</h3>
             <p>Data-to-paper project for Trimble, integrating advanced machine learning models.</p>
             <div class="gallery-images">
-                <img src="resources/img/Rimuru.jpg" alt="Trimble Project Slide 1">
-                <img src="resources/img/trimble_project2.jpg" alt="Trimble Project Slide 2">
+                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
+                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
             </div>
-            <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
         </div>
     </div>
-</div>
 
-<!-- Gallery Overlay for Metanoia Project -->
-<div id="metanoiaProject" class="gallery-overlay">
-    <span class="close-button" onclick="closeGallery()">&times;</span>
-    <div class="gallery-content">
-        <div class="gallery-navigation">
-            <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+    <div id="metanoia" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
             <h3>Metanoia - Hackathon Project</h3>
             <p>Chrome extension for journaling and personal reflection, awarded 1st place in UI/UX category.</p>
             <div class="gallery-images">
-                <img src="resources/img/bowling.jpg" alt="Metanoia Slide 1">
-                <img src="resources/img/metanoia2.jpg" alt="Metanoia Slide 2">
+                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
+                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
             </div>
-            <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
         </div>
     </div>
-</div>
 
-<!-- Gallery Overlay for Responsive Website -->
-<div id="responsiveWebsite" class="gallery-overlay">
-    <span class="close-button" onclick="closeGallery()">&times;</span>
-    <div class="gallery-content">
-        <div class="gallery-navigation">
-            <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
-            <h3>Responsive Website</h3>
-            <p>A fully responsive website built with HTML, CSS, and Bootstrap for a seamless user experience across devices.</p>
-            <div class="gallery-images">
-                <img src="resources/img/Intro-HELLO-FUTURE-1920x1080_v2.gif" alt="Responsive Website Slide 1">
-                <img src="resources/img/responsive_website2.jpg" alt="Responsive Website Slide 2">
-            </div>
-            <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
-        </div>
-    </div>
-</div>
+
+
+
+
+
 
 
 

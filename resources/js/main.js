@@ -302,92 +302,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // GALLARYOVERLAY
     // JavaScript code to handle the opening and closing of the gallery overlay
-    // function openGallery(projectId) {
-    //     const overlay = document.getElementById(projectId);
-    //     if (overlay) {
-    //         overlay.style.display = 'flex'; // Display overlay when clicked
-    //     }
+    function openGallery(projectId) {
+        const overlay = document.getElementById(projectId);
+        if (overlay) {
+            overlay.style.display = 'flex'; // Display overlay when clicked
+        }
+    }
+
+    function closeGallery() {
+        const overlays = document.querySelectorAll('.gallery-overlay');
+        overlays.forEach(overlay => {
+            overlay.style.display = 'none'; // Hide all overlays
+        });
+    }
+    window.openGallery = openGallery;
+    window.closeGallery = closeGallery;
+    // Ensure these functions are in the global scope
+    // const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item"));
+    // const galleryOverlay = document.querySelector(".gallery-overlay");
+    // const galleryContent = document.querySelector(".gallery-content");
+    // const galleryImagesContainer = document.querySelector(".gallery-images");
+    // const galleryTitle = document.querySelector(".gallery-content h3");
+    // const galleryDescription = document.querySelector(".gallery-content p");
+
+    // let currentCategory = "*"; // Default to "All"
+    // let currentIndex = 0;
+
+    // // Open Gallery Function
+    // function openGallery(category, index) {
+    //     currentCategory = category;
+    //     currentIndex = index;
+    //     displayGalleryItem(currentCategory, currentIndex);
+    //     galleryOverlay.style.display = "flex";
     // }
 
-    // function closeGallery() {
-    //     const overlays = document.querySelectorAll('.gallery-overlay');
-    //     overlays.forEach(overlay => {
-    //         overlay.style.display = 'none'; // Hide all overlays
+    // // Display the specific project in the gallery
+    // function displayGalleryItem(category, index) {
+    //     // Filter items based on category
+    //     const items = category === "*" ? portfolioItems : portfolioItems.filter(item => item.classList.contains(category));
+
+    //     // Get the project data
+    //     const selectedItem = items[index];
+    //     const title = selectedItem.querySelector(".overlay h4").textContent;
+    //     const description = selectedItem.querySelector(".overlay p").textContent;
+    //     const imagePaths = Array.from(selectedItem.querySelectorAll("img")).map(img => img.src);
+
+    //     // Set the gallery content
+    //     galleryTitle.textContent = title;
+    //     galleryDescription.textContent = description;
+    //     galleryImagesContainer.innerHTML = ""; // Clear previous images
+    //     imagePaths.forEach(path => {
+    //         const img = document.createElement("img");
+    //         img.src = path;
+    //         img.classList.add("grid-item--small");
+    //         galleryImagesContainer.appendChild(img);
     //     });
     // }
 
-    // Ensure these functions are in the global scope
-    const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item"));
-    const galleryOverlay = document.querySelector(".gallery-overlay");
-    const galleryContent = document.querySelector(".gallery-content");
-    const galleryImagesContainer = document.querySelector(".gallery-images");
-    const galleryTitle = document.querySelector(".gallery-content h3");
-    const galleryDescription = document.querySelector(".gallery-content p");
+    // // Close Gallery
+    // function closeGallery() {
+    //     galleryOverlay.style.display = "none";
+    // }
 
-    let currentCategory = "*"; // Default to "All"
-    let currentIndex = 0;
+    // // Navigate to the previous project in the selected category
+    // function navigateLeft() {
+    //     const items = currentCategory === "*" ? portfolioItems : portfolioItems.filter(item => item.classList.contains(currentCategory));
+    //     currentIndex = (currentIndex - 1 + items.length) % items.length; // Wrap around if needed
+    //     displayGalleryItem(currentCategory, currentIndex);
+    // }
 
-    // Open Gallery Function
-    function openGallery(category, index) {
-        currentCategory = category;
-        currentIndex = index;
-        displayGalleryItem(currentCategory, currentIndex);
-        galleryOverlay.style.display = "flex";
-    }
+    // // Navigate to the next project in the selected category
+    // function navigateRight() {
+    //     const items = currentCategory === "*" ? portfolioItems : portfolioItems.filter(item => item.classList.contains(currentCategory));
+    //     currentIndex = (currentIndex + 1) % items.length; // Wrap around if needed
+    //     displayGalleryItem(currentCategory, currentIndex);
+    // }
 
-    // Display the specific project in the gallery
-    function displayGalleryItem(category, index) {
-        // Filter items based on category
-        const items = category === "*" ? portfolioItems : portfolioItems.filter(item => item.classList.contains(category));
+    // // Attach event listeners to gallery navigation buttons
+    // document.querySelector(".gallery-arrow-left").addEventListener("click", navigateLeft);
+    // document.querySelector(".gallery-arrow-right").addEventListener("click", navigateRight);
+    // document.querySelector(".close-button").addEventListener("click", closeGallery);
 
-        // Get the project data
-        const selectedItem = items[index];
-        const title = selectedItem.querySelector(".overlay h4").textContent;
-        const description = selectedItem.querySelector(".overlay p").textContent;
-        const imagePaths = Array.from(selectedItem.querySelectorAll("img")).map(img => img.src);
-
-        // Set the gallery content
-        galleryTitle.textContent = title;
-        galleryDescription.textContent = description;
-        galleryImagesContainer.innerHTML = ""; // Clear previous images
-        imagePaths.forEach(path => {
-            const img = document.createElement("img");
-            img.src = path;
-            img.classList.add("grid-item--small");
-            galleryImagesContainer.appendChild(img);
-        });
-    }
-
-    // Close Gallery
-    function closeGallery() {
-        galleryOverlay.style.display = "none";
-    }
-
-    // Navigate to the previous project in the selected category
-    function navigateLeft() {
-        const items = currentCategory === "*" ? portfolioItems : portfolioItems.filter(item => item.classList.contains(currentCategory));
-        currentIndex = (currentIndex - 1 + items.length) % items.length; // Wrap around if needed
-        displayGalleryItem(currentCategory, currentIndex);
-    }
-
-    // Navigate to the next project in the selected category
-    function navigateRight() {
-        const items = currentCategory === "*" ? portfolioItems : portfolioItems.filter(item => item.classList.contains(currentCategory));
-        currentIndex = (currentIndex + 1) % items.length; // Wrap around if needed
-        displayGalleryItem(currentCategory, currentIndex);
-    }
-
-    // Attach event listeners to gallery navigation buttons
-    document.querySelector(".gallery-arrow-left").addEventListener("click", navigateLeft);
-    document.querySelector(".gallery-arrow-right").addEventListener("click", navigateRight);
-    document.querySelector(".close-button").addEventListener("click", closeGallery);
-
-    // Attach click event to each portfolio item to open the gallery
-    portfolioItems.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            const category = Array.from(item.classList).find(cls => cls !== "portfolio-item"); // Get first category
-            openGallery(category, index);
-        });
-    });
+    // // Attach click event to each portfolio item to open the gallery
+    // portfolioItems.forEach((item, index) => {
+    //     item.addEventListener("click", () => {
+    //         const category = Array.from(item.classList).find(cls => cls !== "portfolio-item"); // Get first category
+    //         openGallery(category, index);
+    //     });
+    // });
 
 });
