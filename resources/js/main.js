@@ -302,21 +302,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // GALLARYOVERLAY
     // JavaScript code to handle the opening and closing of the gallery overlay
-    function openGallery(projectId) {
-        const overlay = document.getElementById(projectId);
-        if (overlay) {
-            overlay.style.display = 'flex'; // Display overlay when clicked
-        }
+    const galleryOverlays = Array.from(document.querySelectorAll(".gallery-overlay"));
+    let currentGalleryId = null;
+
+    function openGallery(galleryId) {
+        closeAllGalleries();
+        currentGalleryId = galleryId;
+        document.getElementById(galleryId).style.display = "flex";
     }
 
     function closeGallery() {
-        const overlays = document.querySelectorAll('.gallery-overlay');
-        overlays.forEach(overlay => {
-            overlay.style.display = 'none'; // Hide all overlays
-        });
+        document.getElementById(currentGalleryId).style.display = "none";
+        currentGalleryId = null;
     }
+
+    function closeAllGalleries() {
+        galleryOverlays.forEach(overlay => overlay.style.display = "none");
+    }
+
+    function navigateLeft() {
+        const currentIndex = galleryOverlays.findIndex(overlay => overlay.id === currentGalleryId);
+        const prevIndex = (currentIndex - 1 + galleryOverlays.length) % galleryOverlays.length;
+        openGallery(galleryOverlays[prevIndex].id);
+    }
+
+    function navigateRight() {
+        const currentIndex = galleryOverlays.findIndex(overlay => overlay.id === currentGalleryId);
+        const nextIndex = (currentIndex + 1) % galleryOverlays.length;
+        openGallery(galleryOverlays[nextIndex].id);
+    }
+
+//     function openGallery(projectId) {
+//         const overlay = document.getElementById(projectId);
+//         if (overlay) {
+//             overlay.style.display = 'flex'; // Display overlay when clicked
+//         }
+//     }
+
+//     function closeGallery() {
+//         const overlays = document.querySelectorAll('.gallery-overlay');
+//         overlays.forEach(overlay => {
+//             overlay.style.display = 'none'; // Hide all overlays
+//         });
+//     }
     window.openGallery = openGallery;
     window.closeGallery = closeGallery;
+    window.navigateLeft = navigateLeft;
+    window.navigateRight = navigateRight;
     // Ensure these functions are in the global scope
     // const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item"));
     // const galleryOverlay = document.querySelector(".gallery-overlay");

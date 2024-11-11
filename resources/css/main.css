@@ -1118,12 +1118,7 @@
 
 
 
-
-
-
-
-
- /* Gallery overlay styles */
+/* Gallery Overlay */
 .gallery-overlay {
   display: none;
   position: fixed;
@@ -1139,16 +1134,68 @@
 }
 
 .gallery-content {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 90%; /* Adjust width to center more in viewport */
+  max-height: 90vh;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+/* Masonry-style grid for gallery images */
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Set minimum column width */
+  gap: 15px;
+  overflow-y: auto;
+  width: 100%;
+  max-height: 70vh;
+  padding: 10px;
+}
+
+/* Define default sizes for images, allowing them to fit in a masonry layout */
+.gallery-images img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Add specific classes to vary image sizes for masonry effect */
+.grid-item--small {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+
+.grid-item--medium {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+.grid-item--large {
+  grid-row: span 3;
+  grid-column: span 3;
+}
+
+.grid-item--tall {
+  grid-row: span 3;
+  grid-column: span 2;
+}
+
+.grid-item--wide {
+  grid-row: span 1;
+  grid-column: span 2;
+}
+
+/* Hover effect for images */
+.gallery-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Arrow Styles */
 .gallery-arrow {
   position: absolute;
   top: 50%;
@@ -1166,14 +1213,15 @@
 .gallery-arrow-right {
   right: 10px;
 }
-/* Close button */
+
+/* Close button styling */
 .close-button {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   font-size: 24px;
   color: #000;
-  background-color: rgba(255, 255, 255, 0.644);
+  background-color: rgba(255, 255, 255, 0.7);
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -1182,73 +1230,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s, transform 0.3s;
 }
 
 .close-button:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   transform: scale(1.1);
-}
-
-/* Gallery grid styles */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Define minimum width for each item */
-  gap: 10px;
-  max-width: 100%;
-  padding: 20px;
-}
-
-/* Default size for grid items */
-.gallery-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-/* Specific sizes for different classes */
-.grid-item--small {
-  grid-row: span 1;
-  grid-column: span 1;
-  height: 120px;
-}
-
-.grid-item--medium {
-  grid-row: span 2;
-  grid-column: span 2;
-  height: 250px;
-}
-
-.grid-item--large {
-  grid-row: span 3;
-  grid-column: span 3;
-  height: 300px;
-}
-
-.grid-item--tall {
-  grid-row: span 2;
-  grid-column: span 1;
-  height: 400px;
-}
-
-.grid-item--wide {
-  grid-row: span 1;
-  grid-column: span 2;
-  height: 120px;
-}
-
-/* Add a hover effect */
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-/* Gallery Images */
-.gallery-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 10px;
-  max-width: 100%;
-  padding: 20px;
 }

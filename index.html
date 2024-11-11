@@ -183,6 +183,7 @@
                 <button data-filter=".ai" class="filter-btn">AI & Machine Learning</button>
                 <button data-filter=".applications" class="filter-btn">Applications</button>
                 <button data-filter=".professional" class="filter-btn">Professional Experience</button>
+                <button data-filter=".hobbies" class="filter-btn">Hobbies</button>
             </div>
             
             <!-- Portfolio Grid -->
@@ -192,15 +193,15 @@
                 <!-- <div class="portfolio-item web-development ai applications professional" data-gallery-id="perfectHomeFinder"> -->
                 <div class="portfolio-item web-development ai applications professional" onclick="openGallery('perfectHomeFinder')">
 
-                    <img src="resources/img/project1.jpg" alt="PerfectHomeFinder" />
+                    <img src="resources/img/perfecthomefinderimg/perfecthomefinder1.webp" alt="PerfectHomeFinder" />
                     <div class="overlay">
                         <h4>PerfectHomeFinder</h4>
                         <p>Real-time home searching app using AI and data-driven APIs</p>
                     </div>
                 </div>                
                 <!-- Web Development & Applications Example -->
-                <div class="portfolio-item web-development applications">
-                    <img src="resources/img/datascigif copy.gif" alt="SportSphere" />
+                <div class="portfolio-item web-development applications" onclick="openGallery('sportSphere')">
+                    <img src="resources/img/datascigif.gif" alt="SportSphere" />
                     <div class="overlay">
                         <h4>SportSphere</h4>
                         <p>Sports betting tracker with user authentication and live sports data.</p>
@@ -211,49 +212,38 @@
                 <div class="portfolio-item ai professional" onclick="openGallery('data2Paper')">
 
                 <!-- <div class="portfolio-item ai professional" data-gallery-id="data2Paper"> -->
-                    <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper" />
+                    <img src="resources/img/trimble/trimbleLogo.png" alt="Data2Paper" />
                     <div class="overlay">
-                        <h4>Data2Paper</h4>
+                        <h4>Trimble Project - Data2Paper</h4>
                         <p>Automated data-to-paper solution for research professionals.</p>
                     </div>
                 </div>
-
-                <!-- AI & Applications Example -->
-                <div class="portfolio-item ai applications" onclick="openGallery('nlpApp')">
-                    <img src="resources/img/project3.webp" alt="NLP App" />
-                    <div class="overlay">
-                        <h4>NLP Web Application</h4>
-                        <p>Language processing web app using GPT-4 for sentiment analysis and text generation.</p>
-                    </div>
-                </div>
-
-                <!-- Applications & Professional Example -->
-                <div class="portfolio-item applications professional" onclick="openGallery('trimble')">
-                    <img src="resources/img/Rimuru.jpg" alt="Trimble Project" />
-                    <div class="overlay">
-                        <h4>Trimble Project</h4>
-                        <p>Data-to-paper project for Trimble, integrating advanced machine learning models.</p>
-                    </div>
-                </div>
-                
-                <!-- Professional & AI Example -->
+                <!-- Professional Example -->
                 <div class="portfolio-item professional ai" onclick="openGallery('metanoia')">
-                    <img src="resources/img/bowling.jpg" alt="Metanoia Project" />
+                    <img src="resources/img/metanoia/metanoia.png" alt="Metanoia Project" />
                     <div class="overlay">
                         <h4>Metanoia - Hackathon Project</h4>
                         <p>Chrome extension for journaling and personal reflection, awarded 1st place in UI/UX category.</p>
                     </div>
                 </div>
-                
-                <!-- Standalone Example (Single Category) -->
-                <div class="portfolio-item web-development" onclick="openGallery('website')">
-                    <img src="resources/img/Intro-HELLO-FUTURE-1920x1080_v2.gif" alt="Website Project" />
+                <div class="portfolio-item web-development" onclick="openGallery('figma')">
+                    <img src="resources/img/figma/favicon(Y).png" alt="Website Project" />
                     <div class="overlay">
-                        <h4>Responsive Website</h4>
-                        <p>A fully responsive website built with HTML, CSS, and Bootstrap for a seamless user experience across devices.</p>
+                        <h4>Figma Design</h4>
+                        <p>Figma is a powerful design tool that allows for real-time collaboration and prototyping. I use Figma to create wireframes, mockups, and interactive prototypes, ensuring a seamless user experience and visually appealing design.</p>
                     </div>
                 </div>
-
+                <!-- Standalone Example (Single Category) -->
+                <div class="portfolio-item web-development" onclick="openGallery('bowling')">
+                    <img src="resources/img/hobbies/bowling.jpg" alt="Website Project" />
+                    <div class="overlay">
+                        <h4>Bowling</h4>
+                        <p>Bowling is one of my favorite hobbies. I enjoy the challenge and precision required to consistently improve my game. It's a great way to relax and have fun with friends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>        
                 <!-- Add other project items similarly -->
                  <!-- Idea for carosel -->
                   
@@ -293,9 +283,7 @@
                     </div>
                 </div> -->
                 <!-- carosel1 end -->
-            </div>
-        </div>
-    </section>
+
     
 
     <!-- Gallery Overlay for PerfectHomeFinder -->
@@ -352,12 +340,16 @@
     <div id="perfectHomeFinder" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
-            <h3>PerfectHomeFinder</h3>
-            <p>Real-time home searching app using AI and data-driven APIs</p>
-            <div class="gallery-images">
-                <img src="resources/img/project1.jpg" alt="HomeFinder Slide 1">
-                <img src="resources/img/project1-2.jpg" alt="HomeFinder Slide 2">
-                <img src="resources/img/project1-3.jpg" alt="HomeFinder Slide 3">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>PerfectHomeFinder</h3>
+                <p>Real-time home searching app using AI and data-driven APIs</p>
+                <div class="gallery-images">
+                    <img src="resources/img/perfecthomefinderimg/perfecthomefinder1.webp" alt="HomeFinder Slide 1" class="grid-item--large">
+                    <img src="resources/img/perfecthomefinderimg/perfecthomefinder2.webp" alt="HomeFinder Slide 2" class="grid-item--tall">
+                    <img src="resources/img/perfecthomefinderimg/perfecthomefinder3.webp" alt="HomeFinder Slide 3" class="grid-item--large">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
             </div>
         </div>
     </div>
@@ -366,39 +358,16 @@
     <div id="data2Paper" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
-            <h3>Data2Paper</h3>
-            <p>Automated data-to-paper solution for research professionals.</p>
-            <div class="gallery-images">
-                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
-                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
-                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
-            </div>
-        </div>
-    </div>
-
-    <div id="nlpApp" class="gallery-overlay">
-        <span class="close-button" onclick="closeGallery()">&times;</span>
-        <div class="gallery-content">
-            <h3>NLP Web Application</h3>
-
-            <p>Language processing web app using GPT-4 for sentiment analysis and text generation.</p>
-            <div class="gallery-images">
-                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
-                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
-                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
-            </div>
-        </div>
-    </div>
-
-    <div id="trimble" class="gallery-overlay">
-        <span class="close-button" onclick="closeGallery()">&times;</span>
-        <div class="gallery-content">
-            <h3>Trimble Project</h3>
-            <p>Data-to-paper project for Trimble, integrating advanced machine learning models.</p>
-            <div class="gallery-images">
-                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
-                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
-                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Data2Paper</h3>
+                <p>Automated data-to-paper solution for research professionals.</p>
+                <div class="gallery-images">
+                    <img src="resources/img/trimble/data_to_paper_process.gif" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                    <img src="resources/img/trimble/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
+                    <img src="resources/img/trimble/trimbleLogo.png" alt="Data2Paper Slide 3" class="grid-item grid-item--large">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
             </div>
         </div>
     </div>
@@ -406,16 +375,68 @@
     <div id="metanoia" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
-            <h3>Metanoia - Hackathon Project</h3>
-            <p>Chrome extension for journaling and personal reflection, awarded 1st place in UI/UX category.</p>
-            <div class="gallery-images">
-                <img src="resources/img/Gym-structure-1080x675.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
-                <img src="resources/img/data_to_paper_process.gif" alt="Data2Paper Slide 2" class="grid-item grid-item--small">
-                <img src="resources/img/page_flipping_data_to_paper.gif" alt="Data2Paper Slide 3" class="grid-item grid-item--tall">
+            <div class="gallery-navigation">
+                    <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Metanoia - Hackathon Project</h3>
+                <p>Chrome extension for journaling and personal reflection, awarded 1st place in UI/UX category.</p>
+                <div class="gallery-images">
+                    <img src="resources/img/metanoia/metanoia.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
             </div>
         </div>
     </div>
-
+    <div id="sportSphere" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                    <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Metanoia - Hackathon Project</h3>
+                <p>Chrome extension for journaling and personal reflection, awarded 1st place in UI/UX category.</p>
+                <div class="gallery-images">
+                    <img src="resources/img/sportSphere/bettingHistorySportsphere.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                    <img src="resources/img/sportSphere/bettinginfoSportsphere.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                    <img src="resources/img/sportSphere/chatCommunitySportSphere.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                    <img src="resources/img/sportSphere/homepageSportsphere.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                    <img src="resources/img/sportSphere/umcSportSphere.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                    <img src="resources/img/sportSphere/wireframeSportsphere.png" alt="Data2Paper Slide 1" class="grid-item grid-item--large">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>    
+        </div>
+    </div>
+    <div id="figma" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Metanoia - Hackathon Project</h3>
+                <p>Chrome extension for journaling and personal reflection, awarded 1st place in UI/UX category.</p>
+                <div class="gallery-images">
+                    <img src="resources/img/figma/favicon(Y).png" alt="Data2Paper Slide 1" class="grid-item--large">
+                    <img src="resources/img/figma/helixCode.png" alt="Data2Paper Slide 1" class="grid-item--large" >           
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+    <div id="bowling" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Bowling</h3>
+                <p>Bowling is one of my favorite hobbies. I enjoy the challenge and precision required to consistently improve my game. It's a great way to relax and have fun with friends.</p>
+                <div class="gallery-images">
+                    <img src="resources/img/hobbies/bowling.jpg" alt="HomeFinder Slide 1">
+                    <img src="resources/img/hobbies/Gym-structure-1080x675.png" alt="HomeFinder Slide 2">
+                    <img src="resources/img/hobbies/Rimuru.jpg" alt="HomeFinder Slide 3">
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>    
+        </div>
+    </div>
 
 
 
