@@ -383,10 +383,43 @@ document.addEventListener('DOMContentLoaded', () => {
     window.navigateLeft = navigateLeft;
     window.navigateRight = navigateRight;
     
-
+    // document.querySelectorAll('.image-container').forEach(container => {
+    //     container.addEventListener('mouseenter', () => {
+    //         const description = container.querySelector('.description');
+    //         description.style.opacity = '1';
+    //         description.style.left = '100%';
+    //         description.style.zIndex = '10';
+    //     });
     
-
-
+    //     container.addEventListener('mouseleave', () => {
+    //         const description = container.querySelector('.description');
+    //         description.style.opacity = '0';
+    //         description.style.left = '100%';
+    //         description.style.zIndex = '1';
+    //     });
+    // });
+    document.querySelectorAll('.image-container').forEach(container => {
+        const img = container.querySelector('img');
+        const description = container.querySelector('.description');
+    
+        const setDescriptionHeight = () => {
+            description.style.height = `${img.clientHeight}px`;
+        };
+    
+        // Use ResizeObserver to handle resizing dynamically
+        const resizeObserver = new ResizeObserver(() => {
+            setDescriptionHeight();
+        });
+        resizeObserver.observe(img);
+    
+        // Initialize height
+        if (img.complete) {
+            setDescriptionHeight();
+        } else {
+            img.onload = setDescriptionHeight;
+        }
+    });
+    
     // Ensure these functions are in the global scope
     // const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item"));
     // const galleryOverlay = document.querySelector(".gallery-overlay");
