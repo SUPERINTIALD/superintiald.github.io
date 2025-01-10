@@ -44,7 +44,7 @@ class Node:
             self.current_y += self.vy
             if self.current_x <= RIGHT_MARGIN + 200 or self.current_x >= WIDTH - 200:
                 self.vx *= -1
-            if self.current_y <= HEIGHT // 4 or self.current_y >= 3 * HEIGHT // 4:
+            if self.current_y <= 50 or self.current_y >= HEIGHT - 50:
                 self.vy *= -1
         else:
             if time_in_cycle < half_cycle:
@@ -52,7 +52,7 @@ class Node:
                 self.current_y += self.vy
                 if self.current_x <= RIGHT_MARGIN + 200 or self.current_x >= WIDTH - 200:
                     self.vx *= -1
-                if self.current_y <= HEIGHT // 4 or self.current_y >= 3 * HEIGHT // 4:
+                if self.current_y <= 50 or self.current_y >= HEIGHT - 50:
                     self.vy *= -1
             else:
                 progress = (time_in_cycle - half_cycle) / half_cycle
