@@ -1268,7 +1268,7 @@
   position: absolute;
   top: 0;
   left: 100%; /* Position the description to the right of the image */
-  margin-left: 15px; /* Add some space between the image and description */
+  margin-left: 19px; /* Add some space between the image and description */
   width: 200px; /* Set a fixed width for the description */
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8); /* Slightly darker background */
