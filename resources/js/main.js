@@ -419,6 +419,14 @@ document.addEventListener('DOMContentLoaded', () => {
             img.onload = setDescriptionHeight;
         }
     });
+    window.addEventListener('resize', () => {
+        document.querySelectorAll('.image-container').forEach(container => {
+            const img = container.querySelector('img');
+            const description = container.querySelector('.description');
+            description.style.height = `${img.clientHeight}px`;
+        });
+    });
+    
     
     // Ensure these functions are in the global scope
     // const portfolioItems = Array.from(document.querySelectorAll(".portfolio-item"));
