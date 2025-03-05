@@ -258,6 +258,15 @@
                     <div class="plus-icon">+</div> <!-- Add this line for the "+" icon -->
 
                 </div>
+
+                <div class="portfolio-item professional web-development" onclick="openGallery('DataMining')">
+                    <img src="resources/img/dataMining/TitleBlock.png" alt="Data Mining Project" />
+                    <div class="overlay">
+                        <h4>Data Mining Project</h4>
+                        <p>Using SARIMA and ARIMA to predict Housing Prices in Boulder, CO</p>
+                    </div>
+                <div class="plus-icon">+</div> <!-- Add this line for the "+" icon -->
+
             </div>
         </div>
     </section>        
@@ -392,7 +401,7 @@
         <div class="gallery-content">
             <div class="gallery-navigation">
                 <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
-                <h3>Data2Paper</h3>
+                <h3>AutoDS Formally(Data2Paper)</h3>
                 <p>Automated data-to-paper solution for research professionals.</p>
                 <div class="gallery-images">
                     <div class="image-container grid-item grid-item--medium">
@@ -413,6 +422,8 @@
                             <p>Generate high-quality research papers from raw data effortlessly.</p>
                         </div>
                     </div>
+
+                    
                 </div>
                 <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
             </div>
@@ -438,6 +449,7 @@
             </div>
         </div>
     </div>
+    
     
     <div id="sportSphere" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
@@ -560,8 +572,83 @@
     </div>
 
 
+    <div id="DataMining" class="gallery-overlay">
+        <span class="close-button" onclick="closeGallery()">&times;</span>
+        <div class="gallery-content">
+            <div class="gallery-navigation">
+                <span class="gallery-arrow gallery-arrow-left" onclick="navigateLeft()">&#10094;</span>
+                <h3>Data Mining Project - Housing Price Prediction</h3>
+                <p>Implemented SARIMA, ARIMA, and additional machine learning models to predict housing prices in Boulder, CO, leveraging detailed data pre-processing, feature engineering, and model evaluation techniques.</p>
+                <div class="gallery-images">
+                    
+                    <div class="image-container grid-item grid-item--wide">
+                        <img src="resources/img/dataMining/originalPhoto.png" alt="Data Preprocessing">
+                        <!-- <img src="resources/img/dataMining/DetailSum.png" alt="Data Preprocessing"> -->
 
+                        <div class="description">
+                            <p>Data preprocessing and feature selection. Collected housing price data and key attributes such as property size, neighborhood details, and economic factors. Ensured data cleaning and normalization.</p>
+                        </div>
+                    </div>
+                    <div class="image-container grid-item grid-item--large">
+                        <img src="resources/img/dataMining/DetailSum.png" alt="Data Preprocessing">
 
+                        <div class="description">
+                            <p>Data preprocessing and feature selection. Collected housing price data and key attributes such as property size, neighborhood details, and economic factors. Ensured data cleaning and normalization.</p>
+                        </div>
+                    </div>
+                    <div class="image-container grid-item grid-item--small git">
+                        <img src="resources/img/dataMining/pACF.png" alt="ACF and PACF Plots">
+
+                        <!-- <img src="resources/img/dataMining/PACFBOT.png" alt="ACF and PACF Plots"> -->
+                        <!-- <img src="resources/img/dataMining/PACF TOP.png" alt="ACF and PACF Plots"> -->
+
+                        <div class="description">
+                            <p>ACF and PACF analysis. Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) were used to determine lag terms and seasonality in the time series. This helped configure ARIMA and SARIMA models effectively.</p>
+                        </div>
+                    </div>
+                    <div class="image-container grid-item grid-item--large">
+                        <img src="resources/img/dataMining/Residual.png" alt="Residual Analysis">
+                        <div class="description">
+                            <p>Residual analysis for model validation. Checked residuals to ensure they were normally distributed and exhibited no significant autocorrelation, indicating a well-fitted model. Performed Ljung-Box tests to validate assumptions.</p>
+                        </div>
+                    </div>
+                    <div class="image-container grid-item grid-item--large">
+                        <img src="resources/img/dataMining/ARIMABOT.png" alt="ARIMA Model Performance">
+                        <img src="resources/img/dataMining/ARIMATOP.png" alt="ARIMA Model Performance">
+
+                        <div class="description">
+                            <p>ARIMA model performance evaluation. Tested various configurations of ARIMA to identify optimal lag, differencing, and seasonality parameters. Explored ACF and PACF plots for parameter tuning.</p>
+                        </div>
+                    </div>
+                    <div class="image-container grid-item grid-item--large">
+                        <img src="resources/img/dataMining/SARIMABOT.png" alt="SARIMA Seasonal Patterns">
+                        <img src="resources/img/dataMining/SARIMATOP.png" alt="SARIMA Seasonal Patterns">
+
+                        <div class="description">
+                            <p>SARIMA implementation. Incorporated seasonality to capture cyclical trends in Boulder’s housing market. Evaluated performance based on RMSE and MAE metrics, with seasonality accounting for quarterly fluctuations.</p>
+                        </div>
+                    </div>
+<!--     
+                    <div class="image-container grid-item grid-item--large">
+                        <img src="resources/img/datamining/model_comparison.png" alt="Model Comparison Chart">
+                        <div class="description">
+                            <p>Step 4: Model comparison across ARIMA, SARIMA, and additional machine learning approaches such as Random Forest Regressor. Visualized performance differences and selected the most accurate model for future price predictions.</p>
+                        </div>
+                    </div> -->
+    
+                    <!-- <div class="image-container grid-item grid-item--large">
+                        <img src="resources/img/datamining/final_predictions.png" alt="Final Predictions">
+                        <div class="description">
+                            <p>Step 5: Final prediction visualization. Presented housing price forecasts for the next 12 months, showing predicted market trends. Demonstrated the impact of seasonality and external variables on projected outcomes.</p>
+                        </div>
+                    </div> -->
+    
+                </div>
+                <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
+            </div>
+        </div>
+    </div>
+    
 
 
 
