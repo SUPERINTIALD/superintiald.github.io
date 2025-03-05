@@ -502,4 +502,68 @@ document.addEventListener('DOMContentLoaded', () => {
     //     });
     // });
 
+
 });
+
+
+
+
+// Add to your main.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize zoom functionality
+    initializeZoom();
+});
+
+function initializeZoom() {
+    // Add zoomable-image class to all gallery images
+    document.querySelectorAll('.gallery-images .image-container img').forEach(img => {
+        img.classList.add('zoomable-image');
+        img.dataset.zoomLevel = '1';
+    });
+    
+    // Setup zoom in buttons
+    document.querySelectorAll('.zoom-in').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const container = this.closest('.gallery-images');
+            const images = container.querySelectorAll('.zoomable-image');
+            
+            images.forEach(img => {
+                const currentZoom = parseFloat(img.dataset.zoomLevel);
+                const newZoom = Math.min(currentZoom * 1.2, 3); // Max zoom 3x
+                img.dataset.zoomLevel = newZoom;
+                img.style.transform = `scale(${newZoom})`;
+            });
+            e.stopPropagation();
+        });
+    });
+    
+    // Setup zoom out buttons
+    document.querySelectorAll('.zoom-out').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const container = this.closest('.gallery-images');
+            const images = container.querySelectorAll('.zoomable-image');
+            
+            images.forEach(img => {
+                const currentZoom = parseFloat(img.dataset.zoomLevel);
+                const newZoom = Math.max(currentZoom / 1.2, 0.5); // Min zoom 0.5x
+                img.dataset.zoomLevel = newZoom;
+                img.style.transform = `scale(${newZoom})`;
+            });
+            e.stopPropagation();
+        });
+    });
+    
+    // Setup zoom reset buttons
+    document.querySelectorAll('.zoom-reset').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const container = this.closest('.gallery-images');
+            const images = container.querySelectorAll('.zoomable-image');
+            
+            images.forEach(img => {
+                img.dataset.zoomLevel = '1';
+                img.style.transform = 'scale(1)';
+            });
+            e.stopPropagation();
+        });
+    });
+}
