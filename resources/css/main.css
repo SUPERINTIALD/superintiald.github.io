@@ -1039,13 +1039,14 @@
     justify-content: center;
     align-items: flex-start; /* Align content to the left */
     text-align: left;
-    transition: transform 0.4s ease-in-out opacity 1.2s ease-in-out;
+    transition: transform 0.4s ease-out, opacity 0.3s ease-out;
     opacity: 0; /* Hide by default */
   }
 
   .portfolio-item:hover .overlay {
     opacity: 1;
     transform: translateX(100%); /* Slide in from the side */
+
   }
 
   /* Overlay Text Styling */
