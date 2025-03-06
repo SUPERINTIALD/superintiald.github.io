@@ -505,65 +505,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-
-
-
-// Add to your main.js file
+// Updated zoom functionality for gallery images
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize zoom functionality
     initializeZoom();
 });
 
 function initializeZoom() {
-    // Add zoomable-image class to all gallery images
-    document.querySelectorAll('.gallery-images .image-container img').forEach(img => {
-        img.classList.add('zoomable-image');
-        img.dataset.zoomLevel = '1';
-    });
-    
-    // Setup zoom in buttons
-    document.querySelectorAll('.zoom-in').forEach(button => {
+    document.querySelectorAll('.zoom-controls .zoom-in').forEach(button => {
         button.addEventListener('click', function(e) {
             const container = this.closest('.gallery-images');
-            const images = container.querySelectorAll('.zoomable-image');
+            const imageContainers = container.querySelectorAll('.image-container');
             
-            images.forEach(img => {
-                const currentZoom = parseFloat(img.dataset.zoomLevel);
+            imageContainers.forEach(imgContainer => {
+                const currentZoom = parseFloat(imgContainer.dataset.zoomLevel || 1);
                 const newZoom = Math.min(currentZoom * 1.2, 3); // Max zoom 3x
-                img.dataset.zoomLevel = newZoom;
-                img.style.transform = `scale(${newZoom})`;
+                imgContainer.dataset.zoomLevel = newZoom;
+                imgContainer.style.transform = `scale(${newZoom})`;
+                imgContainer.style.transformOrigin = 'top left';
+                const margin = 10 * (newZoom - 1);
+                imgContainer.style.margin = `${margin}px`;
+                imgContainer.style.zIndex = newZoom > 1 ? "5" : "1";
             });
             e.stopPropagation();
         });
     });
     
-    // Setup zoom out buttons
-    document.querySelectorAll('.zoom-out').forEach(button => {
+    document.querySelectorAll('.zoom-controls .zoom-out').forEach(button => {
         button.addEventListener('click', function(e) {
             const container = this.closest('.gallery-images');
-            const images = container.querySelectorAll('.zoomable-image');
+            const imageContainers = container.querySelectorAll('.image-container');
             
-            images.forEach(img => {
-                const currentZoom = parseFloat(img.dataset.zoomLevel);
+            imageContainers.forEach(imgContainer => {
+                const currentZoom = parseFloat(imgContainer.dataset.zoomLevel || 1);
                 const newZoom = Math.max(currentZoom / 1.2, 0.5); // Min zoom 0.5x
-                img.dataset.zoomLevel = newZoom;
-                img.style.transform = `scale(${newZoom})`;
+                imgContainer.dataset.zoomLevel = newZoom;
+
+                imgContainer.style.transform = `scale(${newZoom})`;
+                imgContainer.style.transformOrigin = 'top left';
+
+                const margin = 10 * (newZoom - 1);
+                imgContainer.style.margin = newZoom > 1 ? `${margin}px` : '10px';
+                imgContainer.style.zIndex = newZoom > 1 ? "5" : "1";
             });
             e.stopPropagation();
         });
     });
     
-    // Setup zoom reset buttons
-    document.querySelectorAll('.zoom-reset').forEach(button => {
+    document.querySelectorAll('.zoom-controls .zoom-reset').forEach(button => {
         button.addEventListener('click', function(e) {
             const container = this.closest('.gallery-images');
-            const images = container.querySelectorAll('.zoomable-image');
+            const imageContainers = container.querySelectorAll('.image-container');
             
-            images.forEach(img => {
-                img.dataset.zoomLevel = '1';
-                img.style.transform = 'scale(1)';
+            imageContainers.forEach(imgContainer => {
+                imgContainer.dataset.zoomLevel = 1;
+                imgContainer.style.transform = 'scale(1)';
+                imgContainer.style.margin = '10px';
+                imgContainer.style.zIndex = "1";
             });
             e.stopPropagation();
         });
     });
+
+    
+
+
 }
+

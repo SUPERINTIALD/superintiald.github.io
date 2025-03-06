@@ -1185,7 +1185,8 @@
   max-height: 70vh;
   padding: 20px;
   flex-wrap: wrap;
-  /* position: relative; */
+  position: relative;
+  overflow: auto;
 }
 
 /* Define default sizes for images, allowing them to fit in a masonry layout */
@@ -1267,6 +1268,9 @@
   border-radius: 8px;
   cursor: pointer;
   margin: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  transform-origin: top left;
 }
 .description {
   position: absolute;
@@ -1286,6 +1290,7 @@
   padding: 20px; /* Add padding for better spacing */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
   border-radius: 8px; /* Match the border radius of the image */
+  transform-origin: left center;
 }
 
 .description p {
@@ -1331,8 +1336,8 @@
 
 
 .zoom-controls {
-  position: absolute;
-  top: 100px;
+  position: fixed;
+  top: 80px;
   right: 100px;
   display: flex;
   gap: 5px;
