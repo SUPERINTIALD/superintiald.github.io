@@ -505,69 +505,177 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Updated zoom functionality for gallery images
+// // Updated zoom functionality for gallery images
 document.addEventListener('DOMContentLoaded', function() {
     initializeZoom();
 });
 
+// function initializeZoom() {
+//     document.querySelectorAll('.zoom-controls .zoom-in').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const container = this.closest('.gallery-images');
+//             const imageContainers = container.querySelectorAll('.image-container');
+            
+//             imageContainers.forEach(imgContainer => {
+//                 const currentZoom = parseFloat(imgContainer.dataset.zoomLevel || 1);
+//                 const newZoom = Math.min(currentZoom * 1.2, 3); // Max zoom 3x
+//                 imgContainer.dataset.zoomLevel = newZoom;
+//                 imgContainer.style.transform = `scale(${newZoom})`;
+//                 imgContainer.style.transformOrigin = 'top left';
+//                 const margin = 10 * (newZoom - 1);
+//                 imgContainer.style.margin = `${margin}px`;
+//                 imgContainer.style.zIndex = newZoom > 1 ? "5" : "1";
+//             });
+//             e.stopPropagation();
+//         });
+//     });
+    
+//     document.querySelectorAll('.zoom-controls .zoom-out').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const container = this.closest('.gallery-images');
+//             const imageContainers = container.querySelectorAll('.image-container');
+            
+//             imageContainers.forEach(imgContainer => {
+//                 const currentZoom = parseFloat(imgContainer.dataset.zoomLevel || 1);
+//                 const newZoom = Math.max(currentZoom / 1.2, 0.5); // Min zoom 0.5x
+//                 imgContainer.dataset.zoomLevel = newZoom;
+
+//                 imgContainer.style.transform = `scale(${newZoom})`;
+//                 imgContainer.style.transformOrigin = 'top left';
+
+//                 const margin = 10 * (newZoom - 1);
+//                 imgContainer.style.margin = newZoom > 1 ? `${margin}px` : '10px';
+//                 imgContainer.style.zIndex = newZoom > 1 ? "5" : "1";
+//             });
+//             e.stopPropagation();
+//         });
+//     });
+    
+//     document.querySelectorAll('.zoom-controls .zoom-reset').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const container = this.closest('.gallery-images');
+//             const imageContainers = container.querySelectorAll('.image-container');
+            
+//             imageContainers.forEach(imgContainer => {
+//                 imgContainer.dataset.zoomLevel = 1;
+//                 imgContainer.style.transform = 'scale(1)';
+//                 imgContainer.style.margin = '10px';
+//                 imgContainer.style.zIndex = "1";
+//             });
+//             e.stopPropagation();
+//         });
+//     });
+
+    
+
+
+// }
+
+// function initializeZoom() {
+//     // Zoom in - applies to entire gallery container
+//     document.querySelectorAll('.zoom-controls .zoom-in').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const container = this.closest('.gallery-images');
+//             const currentZoom = parseFloat(container.dataset.zoomLevel || 1);
+//             const newZoom = Math.min(currentZoom * 1.2, 3); // Max zoom 3x
+            
+//             // Apply zoom to the entire container
+//             container.dataset.zoomLevel = newZoom;
+//             container.style.transform = `scale(${newZoom})`;
+//             container.style.transformOrigin = 'top left';
+            
+//             e.stopPropagation();
+//         });
+//     });
+    
+//     // Zoom out - applies to entire gallery container
+//     document.querySelectorAll('.zoom-controls .zoom-out').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const container = this.closest('.gallery-images');
+//             const currentZoom = parseFloat(container.dataset.zoomLevel || 1);
+//             const newZoom = Math.max(currentZoom / 1.2, 0.5); // Min zoom 0.5x
+            
+//             // Apply zoom to the entire container
+//             container.dataset.zoomLevel = newZoom;
+//             container.style.transform = `scale(${newZoom})`;
+//             container.style.transformOrigin = 'top left';
+            
+//             e.stopPropagation();
+//         });
+//     });
+    
+//     // Reset zoom - applies to entire gallery container
+//     document.querySelectorAll('.zoom-controls .zoom-reset').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const container = this.closest('.gallery-images');
+//             container.dataset.zoomLevel = 1;
+//             container.style.transform = 'scale(1)';
+            
+//             e.stopPropagation();
+//         });
+//     });
+// }
+
 function initializeZoom() {
+    // Track zoom level
+    let zoomLevel = 1;
+    const minZoom = 0.5;
+    const maxZoom = 2;
+    
+    // Zoom in - show fewer items but larger
     document.querySelectorAll('.zoom-controls .zoom-in').forEach(button => {
         button.addEventListener('click', function(e) {
-            const container = this.closest('.gallery-images');
-            const imageContainers = container.querySelectorAll('.image-container');
+            const galleryContent = this.closest('.gallery-content');
+            const galleryImages = galleryContent.querySelector('.gallery-images');
             
-            imageContainers.forEach(imgContainer => {
-                const currentZoom = parseFloat(imgContainer.dataset.zoomLevel || 1);
-                const newZoom = Math.min(currentZoom * 1.2, 3); // Max zoom 3x
-                imgContainer.dataset.zoomLevel = newZoom;
-                imgContainer.style.transform = `scale(${newZoom})`;
-                imgContainer.style.transformOrigin = 'top left';
-                const margin = 10 * (newZoom - 1);
-                imgContainer.style.margin = `${margin}px`;
-                imgContainer.style.zIndex = newZoom > 1 ? "5" : "1";
-            });
+            zoomLevel = Math.min(zoomLevel * 1.2, maxZoom);
+            updateGalleryLayout(galleryImages, zoomLevel);
             e.stopPropagation();
         });
     });
     
+    // Zoom out - show more items but smaller
     document.querySelectorAll('.zoom-controls .zoom-out').forEach(button => {
         button.addEventListener('click', function(e) {
-            const container = this.closest('.gallery-images');
-            const imageContainers = container.querySelectorAll('.image-container');
+            const galleryContent = this.closest('.gallery-content');
+            const galleryImages = galleryContent.querySelector('.gallery-images');
             
-            imageContainers.forEach(imgContainer => {
-                const currentZoom = parseFloat(imgContainer.dataset.zoomLevel || 1);
-                const newZoom = Math.max(currentZoom / 1.2, 0.5); // Min zoom 0.5x
-                imgContainer.dataset.zoomLevel = newZoom;
-
-                imgContainer.style.transform = `scale(${newZoom})`;
-                imgContainer.style.transformOrigin = 'top left';
-
-                const margin = 10 * (newZoom - 1);
-                imgContainer.style.margin = newZoom > 1 ? `${margin}px` : '10px';
-                imgContainer.style.zIndex = newZoom > 1 ? "5" : "1";
-            });
+            zoomLevel = Math.max(zoomLevel / 1.2, minZoom);
+            updateGalleryLayout(galleryImages, zoomLevel);
             e.stopPropagation();
         });
     });
     
+    // Reset zoom
     document.querySelectorAll('.zoom-controls .zoom-reset').forEach(button => {
         button.addEventListener('click', function(e) {
-            const container = this.closest('.gallery-images');
-            const imageContainers = container.querySelectorAll('.image-container');
+            const galleryContent = this.closest('.gallery-content');
+            const galleryImages = galleryContent.querySelector('.gallery-images');
             
-            imageContainers.forEach(imgContainer => {
-                imgContainer.dataset.zoomLevel = 1;
-                imgContainer.style.transform = 'scale(1)';
-                imgContainer.style.margin = '10px';
-                imgContainer.style.zIndex = "1";
-            });
+            zoomLevel = 1;
+            updateGalleryLayout(galleryImages, zoomLevel);
             e.stopPropagation();
         });
     });
-
     
-
-
+    // Function to update gallery layout based on zoom level
+    function updateGalleryLayout(galleryImages, zoom) {
+        // Base values at zoom level 1
+        const baseColumnWidth = 200; // Minimum column width at zoom=1
+        const baseGap = 20;         // Gap between items at zoom=1
+        
+        // Calculate new values based on zoom
+        const columnWidth = baseColumnWidth * zoom;
+        const gap = baseGap * zoom;
+        
+        // Apply to gallery grid
+        galleryImages.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidth}px, 1fr))`;
+        galleryImages.style.gap = `${gap}px`;
+        
+        // Update image container sizes
+        const imageContainers = galleryImages.querySelectorAll('.image-container');
+        imageContainers.forEach(container => {
+            container.style.transform = 'none'; // Remove any previous transforms
+        });
+    }
 }
-
