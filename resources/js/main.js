@@ -241,35 +241,106 @@ document.addEventListener('DOMContentLoaded', () => {
         // Shuffling Function with AOS
     // Define possible AOS animation effects
     const animationClasses = ["fade-in", "zoom-in", "slide-up"]; // List of animation classes
-
     function shuffleItems() {
-        if (isHovering) return; // Prevent shuffling when hovering over items
-
+        // Don't shuffle if user is hovering over items
+        if (isHovering) return;
+        
         const visibleItems = portfolioItemsF.filter(item => item.classList.contains("show"));
-
-        // Shuffle the visible items array
-        for (let i = visibleItems.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [visibleItems[i], visibleItems[j]] = [visibleItems[j], visibleItems[i]];
-        }
-
+        if (!visibleItems.length) return;
+        
+        // 1. First - fade out all items
         visibleItems.forEach(item => {
-            // Assign a random animation class
-            const randomAnimation = animationClasses[Math.floor(Math.random() * animationClasses.length)];
-            item.classList.add(randomAnimation);
-
-            // Remove the animation class after animation ends
-            item.addEventListener("animationend", () => {
-                item.classList.remove(randomAnimation);
-            });
-
-            // Append item back to the grid
-            portfolioGrid.appendChild(item);
+            item.style.willChange = 'transform, opacity';
+            item.style.transition = 'opacity 0.4s ease-out';
+            item.style.opacity = '0'; // Fade out
         });
+        
+        // Wait for fade-out transition to complete
+        setTimeout(() => {
+            // 2. Record initial positions (while invisible)
+            const initialPositions = visibleItems.map(item => {
+                const rect = item.getBoundingClientRect();
+                return { item: item, rect: rect };
+            });
+            
+            // 3. Shuffle array
+            for (let i = visibleItems.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [visibleItems[i], visibleItems[j]] = [visibleItems[j], visibleItems[i]];
+            }
+            
+            // 4. Append items in new order
+            requestAnimationFrame(() => {
+                const fragment = document.createDocumentFragment();
+                visibleItems.forEach(item => fragment.appendChild(item));
+                portfolioGrid.appendChild(fragment);
+                
+                // 5. Measure final positions
+                const finalPositions = visibleItems.map(item => {
+                    const rect = item.getBoundingClientRect();
+                    return { item: item, rect: rect };
+                });
+                
+                // 6. Apply transforms while still invisible
+                finalPositions.forEach((finalPos) => {
+                    const initialPos = initialPositions.find(pos => pos.item === finalPos.item);
+                    const deltaX = initialPos.rect.left - finalPos.rect.left;
+                    const deltaY = initialPos.rect.top - finalPos.rect.top;
+                    
+                    finalPos.item.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                    finalPos.item.style.transition = 'none';
+                });
+                
+                // 7. Animate to final positions and fade in
+                requestAnimationFrame(() => {
+                    visibleItems.forEach((item) => {
+                        item.style.transition = 'transform 0.85s ease-out, opacity 0.6s ease-in';
+                        item.style.transform = 'translate(0, 0)';
+                        item.style.opacity = '1'; // Fade back in
+                    });
+                    
+                    // 8. Clean up after animation completes
+                    setTimeout(() => {
+                        visibleItems.forEach(item => {
+                            item.style.transition = '';
+                            item.style.willChange = 'auto';
+                        });
+                    }, 900);
+                });
+            });
+        }, 450); // Wait just a bit longer than the fade-out animation
     }
+    
+    // Keep the interval at 5 seconds or longer
+    setInterval(shuffleItems, 5500);
+    // function shuffleItems() {
+    //     if (isHovering) return; // Prevent shuffling when hovering over items
+
+    //     const visibleItems = portfolioItemsF.filter(item => item.classList.contains("show"));
+
+    //     // Shuffle the visible items array
+    //     for (let i = visibleItems.length - 1; i > 0; i--) {
+    //         const j = Math.floor(Math.random() * (i + 1));
+    //         [visibleItems[i], visibleItems[j]] = [visibleItems[j], visibleItems[i]];
+    //     }
+
+    //     visibleItems.forEach(item => {
+    //         // Assign a random animation class
+    //         const randomAnimation = animationClasses[Math.floor(Math.random() * animationClasses.length)];
+    //         item.classList.add(randomAnimation);
+
+    //         // Remove the animation class after animation ends
+    //         item.addEventListener("animationend", () => {
+    //             item.classList.remove(randomAnimation);
+    //         });
+
+    //         // Append item back to the grid
+    //         portfolioGrid.appendChild(item);
+    //     });
+    // }
 
     // Shuffle items every 10 seconds
-    setInterval(shuffleItems, 5000); // Adjust time as needed
+    // setInterval(shuffleItems, 10000); // Adjust time as needed
 
 
     // Initialize Isotope
