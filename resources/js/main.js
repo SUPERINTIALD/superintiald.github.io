@@ -579,6 +579,40 @@ document.addEventListener('DOMContentLoaded', () => {
 // // Updated zoom functionality for gallery images
 document.addEventListener('DOMContentLoaded', function() {
     initializeZoom();
+    const header = document.querySelector('.header');
+    if (header && !document.querySelector('.mobile-nav-toggle')) {
+      const mobileWrapper = document.createElement('div');
+      mobileWrapper.className = 'mobile-nav-wrapper d-lg-none';
+      
+      // Site name/logo
+      const siteName = document.createElement('div');
+      siteName.className = 'site-name';
+      siteName.textContent = 'Yuri Fung';
+      
+      // Toggle button
+      const toggleBtn = document.createElement('button');
+      toggleBtn.className = 'mobile-nav-toggle';
+      toggleBtn.innerHTML = '<i class="bi bi-list"></i>';
+      
+      mobileWrapper.appendChild(siteName);
+      mobileWrapper.appendChild(toggleBtn);
+      header.prepend(mobileWrapper);
+      
+      // Toggle menu
+      toggleBtn.addEventListener('click', function() {
+        const navmenu = document.querySelector('.navmenu');
+        navmenu.classList.toggle('active');
+        
+        // Change icon
+        const icon = this.querySelector('i');
+        if (navmenu.classList.contains('active')) {
+          icon.className = 'bi bi-x';
+        } else {
+          icon.className = 'bi bi-list';
+        }
+      });
+    }
+
 });
 
 // function initializeZoom() {
