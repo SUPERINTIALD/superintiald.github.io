@@ -137,6 +137,7 @@
   --------------------------------------------------------------*/
   .navmenu {
     padding: 0;
+    padding-left: 17.5px;
     z-index: 9997;
   }
   
@@ -172,7 +173,7 @@
   .navmenu a:focus i {
     font-size: 20px;
     transition: transform 0.3s ; /* Smooth animation for icon */
-
+    /* margin-right: 8px */
   }
   
   .navmenu a span,
@@ -203,7 +204,81 @@
         display: inline;
     }
 }
+ /* Mobile Navigation Improvements */
+@media (max-width: 991px) {
+  .header {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+  }
   
+  /* Mobile nav wrapper */
+  .mobile-nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: var(--background-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hamburger button */
+  .mobile-nav-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--accent-color);
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  /* Nav container for mobile */
+  .navmenu {
+    display: none;
+    width: 100%;
+    padding: 10px;
+    background: var(--background-color);
+  }
+  
+  .navmenu.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .navmenu ul {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .navmenu a,
+  .navmenu a:focus {
+    max-width: 100%;
+    justify-content: flex-start;
+    padding: 12px 20px;
+  }
+  
+  .navmenu a span,
+  .navmenu a:focus span {
+    display: inline;
+  }
+  
+  .navmenu a:hover,
+  .navmenu li:hover > a {
+    max-width: 100%;
+  }
+}
+
+/* Add this animation for mobile menu */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+} 
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus,
@@ -1028,7 +1103,7 @@
   .portfolio-item .overlay {
     position: absolute;
     top: 0;
-    left: -100%; 
+    left: 0; 
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
@@ -1039,13 +1114,13 @@
     justify-content: center;
     align-items: flex-start; /* Align content to the left */
     text-align: left;
-    transition: transform 0.4s ease-out, opacity 0.3s ease-out;
+    transition: transform 0.4s ease-out, opacity 0.5s ease-out;
     opacity: 0; /* Hide by default */
   }
 
   .portfolio-item:hover .overlay {
     opacity: 1;
-    transform: translateX(100%); /* Slide in from the side */
+    /* transform: translateX(100%); Slide in from the side */
 
   }
 
