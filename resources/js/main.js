@@ -613,6 +613,39 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
+    const headerToggle = document.querySelector('.header-toggle');
+    const navmenu = document.querySelector('.navmenu');
+    
+    headerToggle.addEventListener('click', function() {
+      navmenu.classList.toggle('active');
+      this.classList.toggle('active');
+      
+      // Toggle icon between hamburger and X
+      if (this.classList.contains('active')) {
+        this.classList.remove('bi-list');
+        this.classList.add('bi-x');
+      } else {
+        this.classList.remove('bi-x');
+        this.classList.add('bi-list');
+      }
+    });
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    // const navmenu = document.querySelector('.navmenu');
+    
+    if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', function() {
+            navmenu.classList.toggle('active');
+            this.classList.toggle('active');
+            
+            // Toggle icon between hamburger and X
+            const icon = this.querySelector('i');
+            if (navmenu.classList.contains('active')) {
+                icon.className = 'bi bi-x';
+            } else {
+                icon.className = 'bi bi-list';
+            }
+        });
+    }
 });
 
 // function initializeZoom() {

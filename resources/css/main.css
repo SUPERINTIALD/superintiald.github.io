@@ -223,9 +223,11 @@
  /* Mobile Navigation Improvements */
 @media (max-width: 991px) {
   .header {
+    display:none;
+
     width: 100%;
     height: auto;
-    position: fixed;
+    position: absolute;
     padding: 0;
     top: 0;
     left: 0;
