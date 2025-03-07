@@ -204,6 +204,22 @@
         display: inline;
     }
 }
+
+/* Add to your CSS file for better toggle button visual feedback */
+.mobile-nav-toggle {
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle i.bi-x {
+  color: #ff5252; /* Change to a more noticeable color like red when open */
+  transform: rotate(90deg); /* Add a rotation effect */
+}
+
+/* Add active state styling for the toggle button */
+.mobile-nav-toggle.active {
+  background-color: rgba(0, 121, 107, 0.1); /* Subtle background when active */
+  border-radius: 5px;
+}
  /* Mobile Navigation Improvements */
 @media (max-width: 991px) {
   .header {
@@ -241,9 +257,14 @@
   /* Nav container for mobile */
   .navmenu {
     display: none;
+    position: absolute;
+    top: 60px; /* Adjust based on your header height */
+    left: 0;
     width: 100%;
-    padding: 10px;
     background: var(--background-color);
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
   }
   
   .navmenu.active {
@@ -266,6 +287,9 @@
   .navmenu a span,
   .navmenu a:focus span {
     display: inline;
+  }
+  .navmenu li {
+    margin-bottom: 10px;
   }
   
   .navmenu a:hover,
