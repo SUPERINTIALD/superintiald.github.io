@@ -629,23 +629,23 @@ document.addEventListener('DOMContentLoaded', function() {
         this.classList.add('bi-list');
       }
     });
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    // const navmenu = document.querySelector('.navmenu');
+    // const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    // // const navmenu = document.querySelector('.navmenu');
     
-    if (mobileNavToggle) {
-        mobileNavToggle.addEventListener('click', function() {
-            navmenu.classList.toggle('active');
-            this.classList.toggle('active');
+    // if (mobileNavToggle) {
+    //     mobileNavToggle.addEventListener('click', function() {
+    //         navmenu.classList.toggle('active');
+    //         this.classList.toggle('active');
             
-            // Toggle icon between hamburger and X
-            const icon = this.querySelector('i');
-            if (navmenu.classList.contains('active')) {
-                icon.className = 'bi bi-x';
-            } else {
-                icon.className = 'bi bi-list';
-            }
-        });
-    }
+    //         // Toggle icon between hamburger and X
+    //         const icon = this.querySelector('i');
+    //         if (navmenu.classList.contains('active')) {
+    //             icon.className = 'bi bi-x';
+    //         } else {
+    //             icon.className = 'bi bi-list';
+    //         }
+    //     });
+    // }
 });
 
 // function initializeZoom() {

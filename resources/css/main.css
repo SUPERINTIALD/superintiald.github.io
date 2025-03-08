@@ -222,18 +222,14 @@
 }
  /* Mobile Navigation Improvements */
 @media (max-width: 991px) {
-  .header {
-    display:none;
-
-    width: 100%;
-    height: auto;
-    position: absolute;
-    padding: 0;
+  /* .header {
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    bottom: auto;
-  }
+    z-index: 999;
+  } */
+  
   
   /* Mobile nav wrapper */
   .mobile-nav-wrapper {
@@ -258,15 +254,14 @@
   
   /* Nav container for mobile */
   .navmenu {
-    display: none;
-    position: absolute;
+    display: none; /* Hidden by default on mobile */
+    position: fixed;
     top: 60px; /* Adjust based on your header height */
     left: 0;
     width: 100%;
-    background: var(--background-color);
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background for mobile menu */
     padding: 20px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
   
   .navmenu.active {
@@ -276,20 +271,26 @@
   
   .navmenu ul {
     width: 100%;
-    padding: 0;
+    /* padding: 0; */
   }
   
   .navmenu a,
   .navmenu a:focus {
+    width: 100%;
+
     max-width: 100%;
-    justify-content: flex-start;
-    padding: 12px 20px;
+    /* justify-content: flex-start;
+    padding: 12px 20px; */
   }
   
   .navmenu a span,
   .navmenu a:focus span {
     display: inline;
   }
+  .navmenu ul {
+    width: 100%;
+  }
+  
   .navmenu li {
     margin-bottom: 10px;
   }
