@@ -33,6 +33,9 @@
 <body class="index-page">
     <header id="header" class="header d-flex flex-column justify-content-center">
         <i class="header-toggle d-xl-none bi bi-list"></i>
+        <!-- <button class="mobile-nav-toggle d-lg-none" aria-label="Toggle Navigation">
+            <i class="bi bi-list"></i>
+        </button> -->
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
@@ -952,8 +955,14 @@
     
 
     <!-- Preloader -->
-    <!-- <div id="preloader"></div> -->
-  
+    <div id="preloader">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <p>Loading...</p>
+    </div>  
     <!-- Vendor JS Files -->
     <script src="resources/vendors/node_modules/aos/dist/aos.js"></script>
     <script src="resources/vendors/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
