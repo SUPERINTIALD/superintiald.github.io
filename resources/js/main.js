@@ -646,6 +646,76 @@ document.addEventListener('DOMContentLoaded', function() {
     //         }
     //     });
     // }
+    const windowLoaded = new Promise(resolve => {
+        if (document.readyState === 'complete') {
+            resolve();
+        } else {
+            window.addEventListener('load', resolve);
+        }
+    });
+    
+    // Create a promise that resolves when images are loaded
+    const imagesLoaded = new Promise(resolve => {
+        const images = document.querySelectorAll('img');
+        let loadedCount = 0;
+        
+        // If no images, resolve immediately
+        if (images.length === 0) {
+            resolve();
+            return;
+        }
+        
+        // For each image, check if loaded
+        images.forEach(img => {
+            if (img.complete) {
+                loadedCount++;
+                if (loadedCount === images.length) resolve();
+            } else {
+                img.addEventListener('load', () => {
+                    loadedCount++;
+                    if (loadedCount === images.length) resolve();
+                });
+                img.addEventListener('error', () => {
+                    loadedCount++;
+                    if (loadedCount === images.length) resolve();
+                });
+            }
+        });
+    });
+    // Create a promise that resolves when fonts are loaded
+    const fontsLoaded = new Promise(resolve => {
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(resolve);
+        } else {
+            // Fallback for browsers not supporting document.fonts
+            setTimeout(resolve, 500);
+        }
+    });
+    
+    // Wait for all promises to resolve
+    Promise.all([windowLoaded, imagesLoaded, fontsLoaded])
+        .then(() => {
+            // Hide preloader after a short delay to ensure animations are ready
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    preloader.style.transition = 'opacity 0.5s ease';
+                    
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                        
+                        // Initialize AOS after preloader is hidden
+                        AOS.init({
+                            duration: 1000,
+                            easing: 'ease-in-out',
+                            once: true,
+                            mirror: false
+                        });
+                    }, 500);
+                }
+            }, 300);
+        });
 });
 
 // function initializeZoom() {
