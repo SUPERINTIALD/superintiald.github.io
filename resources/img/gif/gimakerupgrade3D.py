@@ -159,12 +159,15 @@ while running:
                             distance_jk = math.sqrt((x2 - x3) ** 2 + (y2 - y3) ** 2 + (z2 - z3) ** 2)
                             distance_ki = math.sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2 + (z3 - z1) ** 2)
                             if distance_jk < MAX_DISTANCE and distance_ki < MAX_DISTANCE:
-                                triangle_color = (
-                                    random.randint(50, 100),
-                                    random.randint(100, 150),
-                                    random.randint(200, 255),
-                                    128,
-                                )
+                                triangle_color = random.choice([
+                                    (0, 0, 255, 128),    # Blue
+                                    (75, 0, 130, 128),   # Indigo
+                                    (148, 0, 211, 128),  # Violet
+                                    (186, 85, 211, 128), # Medium Orchid
+                                    (218, 112, 214, 128),# Orchid
+                                    (221, 160, 221, 128),# Plum
+                                    (230, 230, 250, 128) # Lavender
+                                ])
                                 pygame.draw.polygon(
                                     triangle_surface,
                                     triangle_color,
