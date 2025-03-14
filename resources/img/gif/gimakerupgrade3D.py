@@ -160,13 +160,27 @@ while running:
                             distance_ki = math.sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2 + (z3 - z1) ** 2)
                             if distance_jk < MAX_DISTANCE and distance_ki < MAX_DISTANCE:
                                 triangle_color = random.choice([
-                                    (0, 0, 255, 128),    # Blue
-                                    (75, 0, 130, 128),   # Indigo
-                                    (148, 0, 211, 128),  # Violet
-                                    (186, 85, 211, 128), # Medium Orchid
-                                    (218, 112, 214, 128),# Orchid
-                                    (221, 160, 221, 128),# Plum
-                                    (230, 230, 250, 128) # Lavender
+                                    (0, 100, 0, 128),     # Dark Green
+                                    (34, 139, 34, 128),   # Forest Green
+                                    (0, 128, 0, 128),     # Green
+                                    (0, 255, 0, 128),     # Lime
+                                    (50, 205, 50, 128),   # Lime Green
+                                    (144, 238, 144, 128), # Light Green
+                                    (152, 251, 152, 128), # Pale Green
+                                    (60, 179, 113, 128),  # Medium Sea Green
+                                    (46, 139, 87, 128),   # Sea Green
+                                    (32, 178, 170, 128),  # Light Sea Green
+                                    (0, 255, 127, 128),   # Spring Green
+                                    (0, 250, 154, 128),   # Medium Spring Green
+                                    (127, 255, 0, 128),   # Chartreuse
+                                    (124, 252, 0, 128),   # Lawn Green
+                                    (173, 255, 47, 128),  # Green Yellow
+                                    (255, 255, 255, 128), # White
+                                    (50, 205, 50, 128),   # Lime Green
+                                    (0, 128, 128, 128),   # Teal
+                                    (0, 139, 139, 128),   # Dark Cyan
+                                    (0, 255, 255, 128),   # Cyan
+                                    (224, 255, 255, 128)  # Light Cyan
                                 ])
                                 pygame.draw.polygon(
                                     triangle_surface,
@@ -200,7 +214,7 @@ while running:
 # Save the frames as a GIF
 if FRAMES:
     FRAMES[0].save(
-        "network_animation_3d.gif",
+        "network_animation_3d_G.gif",
         save_all=True,
         append_images=FRAMES[1:],
         duration=1000 // 60,  # 60 FPS
