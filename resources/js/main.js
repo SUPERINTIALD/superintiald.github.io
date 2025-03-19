@@ -409,7 +409,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // function stopSlideshow() {
     //     clearInterval(slideInterval);
     // }
-
+    function startSlideshow(galleryId) {
+        // Get the current gallery
+        const gallery = document.getElementById(galleryId);
+        if (!gallery) return;
+        
+        // Clear any existing slideshow interval
+        if (window.slideshowInterval) {
+          clearInterval(window.slideshowInterval);
+        }
+    }
     // Navigation functions
     function navigateLeft() {
         const currentIndex = galleryOverlays.findIndex(overlay => overlay.id === currentGalleryId);
@@ -698,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hide preloader after a short delay to ensure animations are ready
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
-                if (preloader) {
+                if (preloader && preloader.style.display !== 'none') {
                     preloader.style.opacity = '0';
                     preloader.style.transition = 'opacity 0.5s ease';
                     
