@@ -399,7 +399,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeAllGalleries() {
         galleryOverlays.forEach(overlay => overlay.style.display = "none");
     }
-
+    function stopSlideshow() {
+        // Clear any existing slideshow interval
+        if (window.slideshowInterval) {
+            clearInterval(window.slideshowInterval);
+            window.slideshowInterval = null;
+        }
+    }
     // Slideshow control functions
     // function startSlideshow() {
     //     stopSlideshow(); // Clear any existing intervals
@@ -481,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.image-container').forEach(container => {
         const img = container.querySelector('img');
         const description = container.querySelector('.description');
-    
+        if (!img || !description) return;
         const setDescriptionHeight = () => {
             description.style.height = `${img.clientHeight}px`;
         };
@@ -490,12 +496,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const resizeObserver = new ResizeObserver(() => {
             setDescriptionHeight();
         });
-        resizeObserver.observe(img);
-    
+        if (img) {
+            resizeObserver.observe(img);
+        }
+            
         // Initialize height
-        if (img.complete) {
+        if (img && img.complete) {
             setDescriptionHeight();
-        } else {
+        } else if (img) {
             img.onload = setDescriptionHeight;
         }
     });
