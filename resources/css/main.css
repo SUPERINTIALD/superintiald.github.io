@@ -1173,6 +1173,16 @@
   }
 
   .filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 8px 12px; */
+    /* border-radius: 4px; */
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    min-width: 44px; /* Ensure minimum tap target size */
+
     flex: 1;
     padding: 10px;
     font-size: 14px;
@@ -1181,7 +1191,7 @@
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
     
   }
 
@@ -1213,6 +1223,44 @@
     transform: scale(0.9); /* Slightly scale down */
     pointer-events: none; /* Prevent interactions while hidden */
   }
+
+  .filter-btn i {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+  }
+  
+  .filter-btn span {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .filter-btn:hover span,
+  .filter-btn.active span,
+  .filter-btn:focus span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .filter-btn:hover,
+  .filter-btn.active,
+  .filter-btn:focus {
+    background-color: #004d40;
+
+  }
+  
+  .filter-btn:hover i,
+  .filter-btn.active i,
+  .filter-btn:focus i {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+
+
+
   /* "+" Icon Styling */
 .plus-icon {
   position: absolute;

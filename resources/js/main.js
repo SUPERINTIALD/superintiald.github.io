@@ -974,3 +974,16 @@ function initializeZoom() {
 //         });
 //     }
 // }
+
+// Add this to your main.js file
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Add active class to the clicked button
+      this.classList.add('active');
+    });
+});
