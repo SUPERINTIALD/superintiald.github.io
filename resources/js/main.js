@@ -832,7 +832,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //         });
 //     });
 // }
-
 function initializeZoom() {
     // Track zoom level
     let zoomLevel = 1;
@@ -889,10 +888,89 @@ function initializeZoom() {
         galleryImages.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidth}px, 1fr))`;
         galleryImages.style.gap = `${gap}px`;
         
-        // Update image container sizes
+        // Update image and video container sizes
         const imageContainers = galleryImages.querySelectorAll('.image-container');
         imageContainers.forEach(container => {
             container.style.transform = 'none'; // Remove any previous transforms
+            
+            // Handle videos specifically within containers
+            const video = container.querySelector('video');
+            if (video) {
+                // Ensure videos have proper dimensions
+                video.style.width = '100%';
+                video.style.height = 'auto';
+                video.style.objectFit = 'contain';
+                
+                // Apply additional styles for better video display at different zoom levels
+                if (zoom > 1) {
+                    container.style.overflow = 'visible';
+                } else {
+                    container.style.overflow = 'hidden';
+                }
+            }
         });
     }
 }
+// function initializeZoom() {
+//     // Track zoom level
+//     let zoomLevel = 1;
+//     const minZoom = 0.5;
+//     const maxZoom = 2;
+    
+//     // Zoom in - show fewer items but larger
+//     document.querySelectorAll('.zoom-controls .zoom-in').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const galleryContent = this.closest('.gallery-content');
+//             const galleryImages = galleryContent.querySelector('.gallery-images');
+            
+//             zoomLevel = Math.min(zoomLevel * 1.2, maxZoom);
+//             updateGalleryLayout(galleryImages, zoomLevel);
+//             e.stopPropagation();
+//         });
+//     });
+    
+//     // Zoom out - show more items but smaller
+//     document.querySelectorAll('.zoom-controls .zoom-out').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const galleryContent = this.closest('.gallery-content');
+//             const galleryImages = galleryContent.querySelector('.gallery-images');
+            
+//             zoomLevel = Math.max(zoomLevel / 1.2, minZoom);
+//             updateGalleryLayout(galleryImages, zoomLevel);
+//             e.stopPropagation();
+//         });
+//     });
+    
+//     // Reset zoom
+//     document.querySelectorAll('.zoom-controls .zoom-reset').forEach(button => {
+//         button.addEventListener('click', function(e) {
+//             const galleryContent = this.closest('.gallery-content');
+//             const galleryImages = galleryContent.querySelector('.gallery-images');
+            
+//             zoomLevel = 1;
+//             updateGalleryLayout(galleryImages, zoomLevel);
+//             e.stopPropagation();
+//         });
+//     });
+    
+//     // Function to update gallery layout based on zoom level
+//     function updateGalleryLayout(galleryImages, zoom) {
+//         // Base values at zoom level 1
+//         const baseColumnWidth = 200; // Minimum column width at zoom=1
+//         const baseGap = 20;         // Gap between items at zoom=1
+        
+//         // Calculate new values based on zoom
+//         const columnWidth = baseColumnWidth * zoom;
+//         const gap = baseGap * zoom;
+        
+//         // Apply to gallery grid
+//         galleryImages.style.gridTemplateColumns = `repeat(auto-fill, minmax(${columnWidth}px, 1fr))`;
+//         galleryImages.style.gap = `${gap}px`;
+        
+//         // Update image container sizes
+//         const imageContainers = galleryImages.querySelectorAll('.image-container');
+//         imageContainers.forEach(container => {
+//             container.style.transform = 'none'; // Remove any previous transforms
+//         });
+//     }
+// }
