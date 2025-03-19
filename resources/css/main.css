@@ -710,8 +710,9 @@
   font-weight: 600;
   text-transform: uppercase;
   color: var(--heading-color);
-  margin-bottom: 8px;
+  margin-bottom: 15px;
   letter-spacing: 0.5px;
+  padding-top: 15px;
   /* padding-left: 28px; */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 
@@ -1181,6 +1182,7 @@
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
   }
 
   .filter-btn:hover,

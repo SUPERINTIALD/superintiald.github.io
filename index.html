@@ -12,6 +12,8 @@
     <!-- npm install CSS vendors -->
     <link href="resources/vendors/node_modules/aos/dist/aos.css" rel="stylesheet">
     <link href="resources/vendors/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Replace your local Bootstrap Icons with this CDN link -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
     <link href="resources/vendors/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="resources/vendors/node_modules/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
     <link href="resources/vendors/node_modules/@coreui/icons/css/all.css" rel="stylesheet">    
@@ -187,12 +189,18 @@
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <!-- Filter Buttons -->
             <div class="filters text-center mb-4">
-                <button data-filter="*" class="filter-btn">All</button>
+                <button data-filter="*" class="filter-btn"><i class="bi bi-grid-3x3-gap me-2"></i>All</button>
+                <button data-filter=".web-development" class="filter-btn"><i class="bi bi-globe me-2"></i>Web Development</button>
+                <button data-filter=".ai" class="filter-btn"><i class="bi bi-cpu me-2"></i>AI & Machine Learning</button>
+                <button data-filter=".applications" class="filter-btn"><i class="bi bi-window-stack me-2"></i>Applications</button>
+                <button data-filter=".professional" class="filter-btn"><i class="bi bi-briefcase me-2"></i>Professional Experience</button>
+                <button data-filter=".hobbies" class="filter-btn"><i class="bi bi-controller me-2"></i>Hobbies</button>
+                <!-- <button data-filter="*" class="filter-btn">All</button>
                 <button data-filter=".web-development" class="filter-btn">Web Development</button>
                 <button data-filter=".ai" class="filter-btn">AI & Machine Learning</button>
                 <button data-filter=".applications" class="filter-btn">Applications</button>
                 <button data-filter=".professional" class="filter-btn">Professional Experience</button>
-                <button data-filter=".hobbies" class="filter-btn">Hobbies</button>
+                <button data-filter=".hobbies" class="filter-btn">Hobbies</button> -->
             </div>
             
             <!-- Portfolio Grid -->
@@ -232,7 +240,7 @@
                     <div class="plus-icon">+</div> <!-- Add this line for the "+" icon -->
                 </div>
                 <div class="portfolio-item web-development applications professional" onclick="openGallery('figma')">
-                    <img src="resources/img/figma/favicon(Y).png" alt="Website Project" />
+                    <img src="resources/img/figma/favicon(Y).png" alt="Website Project" style="object-fit: contain; width: 100%; height: 100%;"/>
                     <div class="overlay">
                         <h4>Figma Design</h4>
                         <p>Design and prototype with Figma.</p>
@@ -257,9 +265,8 @@
                     </div>
                 <div class="plus-icon">+</div> <!-- Add this line for the "+" icon -->
                 </div>
-                <div class="portfolio-item professional web-development" onclick="openGallery('HackCU2025')">
-                    <img src="resources/img/HackCU2025HERMES/Title.png" alt="HackCU 2025 Project" />
-                    <div class="overlay">
+                <div class="portfolio-item professional web-development ai applications" onclick="openGallery('HackCU2025')">
+                    <img src="resources/img/HackCU2025HERMES/hermes_wings.jpg" alt="HackCU 2025 Project" style="object-fit: contain; width: 100%; height: 100%;" />                    <div class="overlay">
                         <h4>HackCU 2025 - Hermes</h4>
                         <p>Management platform to streamline organization operations</p>
                     </div>
@@ -504,6 +511,12 @@
                 <h4>SportSphere</h4>
                 <p>Sports betting tracker with user authentication and live sports data.</p>
                 <div class="gallery-images">
+                    <!-- <div class="image-container grid-item grid-item--medium">
+                        <video controls>
+                            <source src="resources/img/sportSphere/ProjectVideoDemo_16-02.mkv" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div> -->
                     <div class="image-container grid-item grid-item--large">
                         <img src="resources/img/sportSphere/bettingHistorySportsphere.png" alt="SportSphere Slide 1">
                         <div class="description">
@@ -718,7 +731,7 @@
                         <video controls>
                             <source src="resources/img/HackCU2025HERMES/CUHack11.mov" type="video/mp4">
                             Your browser does not support the video tag.
-                        </video></video>
+                        </video>
                     </div>
                     <div class="image-container grid-item grid-item--large">
                         <img src="resources/img/HackCU2025HERMES/Title.png" alt="Hermes Slide 1">
@@ -769,7 +782,7 @@
         </div>
     </div>
 
-    <div id="DistractIQ" class="gallery-overlay">
+    <!-- <div id="DistractIQ" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
             <div class="zoom-controls">
@@ -792,8 +805,8 @@
                 <span class="gallery-arrow gallery-arrow-right" onclick="navigateRight()">&#10095;</span>
             </div>
         </div>
-    </div>
-    <div id="OOPResearch" class="gallery-overlay">
+    </div> -->
+    <!-- <div id="OOPResearch" class="gallery-overlay">
         <span class="close-button" onclick="closeGallery()">&times;</span>
         <div class="gallery-content">
             <div class="zoom-controls">
@@ -841,7 +854,7 @@
             </div>
         </div>
     </div>
-   
+    -->
 
 
 
@@ -933,9 +946,12 @@
 
                     <h3 class="resume-title">Skills</h3>
                     <div class="resume-item">
-                        <p><strong>Programming Languages:</strong> C++, C, Java, Python (ISLP, Pandas, Numpy), Flask, Pytorch, TensorFlow, JavaScript, NodeJS, Handlebars, Assembly, LaTeX, Apple Script, R, SQL (NoSQL), Scala, HTML, CSS, XML, Shell Script, PHP, MATLAB, Lua</p>
-                        <p><strong>Applications/Tools/Frameworks:</strong> Jupyter Notebook/Lab, Figma, Docker, Airflow, Postgres, MongoDB, Postman, JSON, AWS Bedrock, Titan, VS Code, IntelliJ, VMware, VirtualBox (Oracle), RStudio, PyCharm, Adobe Photoshop, Bash, Google OAuth, Microsoft Azure, Bootstrap, Git, Anaconda, CUDA, Burp Suite, Gradle, MySQL Workbench, Webot, iPhone, Android, SikuliX, Project Management (Agile, Waterfall), Version Control (GitHub), Wezterm, Wireshark, Wireguard, Nmap, Hashcat</p>
-                        <p><strong>Other Skills:</strong> Robotics (VEXCODE), Web Development (Frontend, Backend, Full Stack), UI/UX Design, Data Modeling, Automation, OS Expertise (Windows, macOS, Linux), Google Suite, Microsoft Office, Google Workspace</p>
+                        <h4>Technical Skills</h4>
+                        <ul>
+                            <li><strong>Programming Languages:</strong> C++, C, Java, Python (ISLP, Pandas, Numpy), Flask, Pytorch, TensorFlow, JavaScript, NodeJS, Handlebars, Assembly, LaTeX, Apple Script, R, SQL (NoSQL), Scala, HTML, CSS, XML, Shell Script, PHP, MATLAB, Lua</li>
+                            <li><strong>Applications/Tools/Frameworks:</strong> Jupyter Notebook/Lab, Figma, Docker, Airflow, Postgres, MongoDB, Postman, JSON, AWS Bedrock, Titan, VS Code, IntelliJ, VMware, VirtualBox (Oracle), RStudio, PyCharm, Adobe Photoshop, Bash, Google OAuth, Microsoft Azure, Bootstrap, Git, Anaconda, CUDA, Burp Suite, Gradle, MySQL Workbench, Webot, iPhone, Android, SikuliX, Project Management (Agile, Waterfall), Version Control (GitHub), Wezterm, Wireshark, Wireguard, Nmap, Hashcat</li>
+                            <li><strong>Other Skills:</strong> Robotics (VEXCODE), Web Development (Frontend, Backend, Full Stack), UI/UX Design, Data Modeling, Automation, OS Expertise (Windows, macOS, Linux), Google Suite, Microsoft Office, Google Workspace</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1050,29 +1066,6 @@
         </div>
     </section><!-- /Resume Section -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
 
 
@@ -1094,7 +1087,7 @@
             </div>
     
             <p class="footer-credit mt-3">
-                © 2025 Yuri Fung. All rights reserved.
+                2025 Yuri Fung. All rights reserved.
             </p>
         </div>
     </footer>
