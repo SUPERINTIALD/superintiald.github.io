@@ -1286,6 +1286,57 @@
   transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
+@media (max-width: 991px) {
+  /* <!-- Mobile filter button bar --> */
+  .filters {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 30px;
+      background-color: #00796b;
+      border-radius: 10px;
+      padding: 5px;
+  }
+
+  /* <!-- Responsive grid --> */
+  .portfolio-item {
+      position: relative;
+      width: 30%;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 20px;
+      cursor: pointer;
+      opacity: 1;
+      transform: scale(0.9);
+  }
+
+  /* Adjusted padding for mobile */
+  /* padding: 15px; */
+
+  /* Filter link styling */
+  .filter-btn i {
+      position: absolute;
+      transform: translateY(-12px);
+      pointer-events: none;
+      opacity: 0;
+  }
+
+  .filter-btn span {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+
+      /* Mobile-specific */
+      width: 16px;
+      height: 8px;
+  }
+
+  .filter-btn:hover span,
+  .filter-btn.active span {
+      opacity: 1;
+  }
+
+}
 
 
 
