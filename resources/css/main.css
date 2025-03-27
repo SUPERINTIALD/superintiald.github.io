@@ -1437,7 +1437,28 @@
 .grid-item--break {
   grid-column: 1 / -1; /* Forces the item to break to a new row */
 }
+/* Add this to your main.css file */
+.image-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 400px; /* Matches standard image heights */
+  background: #000; /* Black background for video spaces */
+  display: block; /* Removes extra spacing */
+}
 
+/* Fix for video containers to match image proportions */
+.grid-item--medium video {
+  aspect-ratio: 16/9;
+}
+
+/* Fix for video container dimensions */
+.grid-item--medium:has(video) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
 /* Hover effect for images */
 .gallery-images img:hover {
   transform: scale(1.05);
