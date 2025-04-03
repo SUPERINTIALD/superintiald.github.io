@@ -27,15 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll-to-Top Button
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
+    let scrollTimer;
     window.addEventListener('scroll', () => {
+        // Scroll-to-top button visibility
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             scrollToTopBtn.style.display = 'block';
         } else {
             scrollToTopBtn.style.display = 'none';
-        }
-        // Reinitialize AOS when scrolling back to the top
-        if (window.scrollY === 0) {
-            AOS.refresh();
+            
+            // Use debounced refresh for better performance when near the top
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+                // Check if we're at or very near the top (within 10px)
+                if (window.scrollY < 10 && typeof AOS !== 'undefined') {
+                    // Force AOS to recalculate and set up animations again
+                    AOS.refreshHard();
+                }
+            }, 50); // Short debounce time
         }
     });
 
@@ -726,7 +734,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         AOS.init({
                             duration: 1000,
                             easing: 'ease-in-out',
-                            once: true,
+                            once: false,
                             mirror: false
                         });
                     }, 500);
@@ -1249,7 +1257,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchGitHubProfile(username);
     
     // Load GitHub trophies
-    displayGitHubTrophies(username);
+    // displayGitHubTrophies(username);
     
     // Load repositories
     fetchGitHubRepos(username);
@@ -1302,12 +1310,12 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Displays GitHub trophies using the github-profile-trophy service
      */
-    function displayGitHubTrophies(username) {
-        const trophiesContainer = document.getElementById('github-trophies');
+    // function displayGitHubTrophies(username) {
+    //     const trophiesContainer = document.getElementById('github-trophies');
         
-        trophiesContainer.innerHTML = `
-        `;
-    }
+    //     trophiesContainer.innerHTML = `
+    //     `;
+    // }
     
     
     /**

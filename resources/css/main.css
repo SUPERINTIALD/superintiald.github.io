@@ -1087,6 +1087,9 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+
+    transition: height 0.4s ease-in-out;
+    will-change: height; /* Helps with smoother height transitions */
   }
 
   .portfolio-item {
@@ -1096,9 +1099,13 @@
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
-    opacity: 0;
+    /* opacity: 0; */
     transform: scale(0.95);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  
+    opacity: 1;
+    will-change: transform, opacity;
+    backface-visibility: hidden; /* Performance boost */
   }
 
   .portfolio-item.show {
@@ -1112,6 +1119,18 @@
     object-fit: cover;
     border-radius: 10px;
   }
+  /* Items that get filtered out */
+  .portfolio-item.filtering-out {
+      transform: scale(0.8);
+      opacity: 0;
+  }
+
+  /* Items being filtered in */
+  .portfolio-item.filtering-in {
+      transform: scale(1);
+      opacity: 1;
+  }
+
 
   /* .portfolio-item .overlay {
     position: absolute;
@@ -1845,7 +1864,7 @@
 
 /* GitHub Projects Section Theming */
 .github-projects {
-  background-color: rgba(0, 0, 0, 0.02); /* Same as your other sections */
+  /* background-color: rgba(0, 0, 0, 0.02); Same as your other sections */
   position: relative;
 }
 
