@@ -1648,3 +1648,276 @@
   0%, 80%, 100% { transform: scale(0); }
   40% { transform: scale(1.0); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 3D Project Graph Styling */
+.project-experience-wrapper {
+  position: relative;
+  margin: 60px 0;
+  padding: 0;
+}
+
+#project-graph-container {
+  position: relative;
+  min-height: 600px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(15,23,42,0.8), rgba(30,41,59,0.9));
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.3),
+    0 1px 5px rgba(0,121,107,0.2) inset,
+    0 -1px 0 rgba(255,255,255,0.1) inset;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#project-graph-container:hover {
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.4),
+    0 2px 10px rgba(0,121,107,0.3) inset;
+  transform: translateY(-5px);
+}
+
+/* Graph Loading Animation */
+#project-graph-container::before {
+  content: "Initializing Project Network...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  opacity: 0.8;
+  animation: pulse 2s infinite;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+/* Graph Legend */
+.graph-legend {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(15,23,42,0.8);
+  border-radius: 10px;
+  padding: 15px;
+  width: auto;
+  max-width: 220px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  transform: translateX(250px);
+  transition: transform 0.4s ease;
+}
+
+#project-graph-container:hover .graph-legend {
+  transform: translateX(0);
+}
+
+.graph-legend h5 {
+  color: var(--accent-color);
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.8);
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Control Panel */
+.graph-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.graph-control-btn {
+  background: rgba(0,121,107,0.2);
+  color: var(--accent-color);
+  border: 1px solid rgba(0,121,107,0.5);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.graph-control-btn:hover {
+  background: rgba(0,121,107,0.4);
+  transform: translateY(-2px);
+}
+
+.graph-control-btn i {
+  font-size: 16px;
+}
+
+/* Node tooltip */
+.graph-tooltip {
+  position: absolute;
+  background: rgba(15,23,42,0.95);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-size: 14px;
+  z-index: 100;
+  pointer-events: none;
+  max-width: 250px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #project-graph-container {
+    min-height: 450px;
+  }
+  
+  .graph-legend {
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    max-width: 180px;
+  }
+}
+/* Add this to hide the loading message once graph is loaded */
+#project-graph-container.loaded::before {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* GitHub Projects Section Theming */
+.github-projects {
+  background-color: rgba(0, 0, 0, 0.02); /* Same as your other sections */
+  position: relative;
+}
+
+
+.github-projects .card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.github-projects .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 121, 107, 0.3);
+}
+
+.github-projects .card-title {
+  color: #00796b;
+  font-weight: 500;
+}
+
+.github-projects .btn-primary {
+  background-color: #00796b;
+  border-color: #00796b;
+}
+/* GitHub badge color override - add this to your CSS */
+.github-projects .badge.bg-primary {
+  background-color: rgba(0, 121, 107, 0.2) !important; /* Use your theme color */
+  color: #00796b !important; /* Match your accent color */
+  border: 1px solid rgba(0, 121, 107, 0.3);
+}
+.github-projects .btn-primary:hover {
+  background-color: #00635a;
+  border-color: #00635a;
+}
+
+.github-projects .btn-outline-primary {
+  color: #00796b;
+  border-color: #00796b;
+}
+
+.github-projects .btn-outline-primary:hover {
+  background-color: #00796b;
+  color: white;
+}
+
+.github-projects .badge {
+  background-color: rgba(0, 121, 107, 0.2);
+  color: #00796b;
+}
+
+/* Repository cards styling */
+#github-repositories .card {
+  border-left: 4px solid #00796b;
+}
+
+/* Trophy section styling */
+#github-trophies {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+/* Profile section styling */
+#github-profile .card {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* GitHub stats image adjustment */
+#github-profile img.img-fluid {
+  background-color: transparent;
+  border-radius: 8px;
+}

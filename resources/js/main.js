@@ -983,7 +983,6 @@ function initializeZoom() {
 //     }
 // }
 
-// Add this to your main.js file
 document.querySelectorAll('.filter-btn').forEach(button => {
     button.addEventListener('click', function() {
       // Remove active class from all buttons
@@ -995,3 +994,405 @@ document.querySelectorAll('.filter-btn').forEach(button => {
       this.classList.add('active');
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Only initialize if the container exists
+    const container = document.getElementById('project-graph-container');
+    if (!container) return;
+    
+    // Create graph tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'graph-tooltip';
+    tooltip.style.opacity = 0;
+    container.appendChild(tooltip);
+    
+    // Project data structured as a graph
+    const projectData = {
+      nodes: [
+        // Core node (center)
+        { 
+          id: 'you', 
+          name: 'Yuri Fung', 
+          group: 'core', 
+          size: 30,
+          description: 'My projects and technologies',
+          type: 'person'
+        },
+        
+        // Project nodes
+        { 
+          id: 'perfecthome', 
+          name: 'PerfectHomeFinder', 
+          group: 'web-development', 
+          size: 15, 
+          gallery: 'perfectHomeFinder',
+          description: 'Real-time home searching app using AI and data-driven APIs',
+          type: 'project' 
+        },
+        { 
+          id: 'trimble', 
+          name: 'Trimble Capstone', 
+          group: 'ai', 
+          size: 15, 
+          gallery: 'data2Paper',
+          description: 'Data-to-paper solution for research professionals',
+          type: 'project' 
+        },
+        { 
+          id: 'sportsphere', 
+          name: 'SportSphere', 
+          group: 'web-development', 
+          size: 15, 
+          gallery: 'sportSphere',
+          description: 'Sports betting tracker with user authentication',
+          type: 'project' 
+        },
+        // Add more project nodes as needed
+      ],
+      links: [
+        // Connect all projects to the core
+        { source: 'you', target: 'perfecthome', value: 5 },
+        { source: 'you', target: 'trimble', value: 5 },
+        { source: 'you', target: 'sportsphere', value: 5 },
+        
+        // Connect related projects
+        { source: 'perfecthome', target: 'trimble', value: 2 }, // Both use AI
+        { source: 'sportsphere', target: 'perfecthome', value: 2 }, // Both web apps
+      ]
+    };
+  
+    // Color groups
+    const groupColors = {
+      'core': '#00796b',
+      'web-development': '#2196F3',
+      'ai': '#9C27B0',
+      'applications': '#FF9800',
+      'security': '#F44336',
+      'hackathon': '#4CAF50'
+    };
+  
+    // Create and add the legend
+    const legend = document.createElement('div');
+    legend.className = 'graph-legend';
+    let legendContent = `<h5>Project Categories</h5>`;
+    
+    Object.entries(groupColors).forEach(([group, color]) => {
+      if (group === 'core') return; // Skip core node
+      
+      const formattedLabel = group.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+      legendContent += `
+        <div class="legend-item">
+          <div class="color-box" style="background-color: ${color}"></div>
+          <span>${formattedLabel}</span>
+        </div>
+      `;
+    });
+    
+    legend.innerHTML = legendContent;
+    container.appendChild(legend);
+    
+    // Add control panel
+    const controls = document.createElement('div');
+    controls.className = 'graph-controls';
+    controls.innerHTML = `
+      <button class="graph-control-btn" id="reset-camera"><i class="bi bi-arrows-fullscreen"></i> Reset View</button>
+      <button class="graph-control-btn" id="toggle-rotation"><i class="bi bi-arrow-repeat"></i> Rotate</button>
+    `;
+    container.appendChild(controls);
+  
+    // Initialize the graph
+    const Graph = ForceGraph3D()
+      .backgroundColor('rgba(0,0,0,0)')
+      .graphData(projectData)
+      .nodeId('id')
+      .nodeVal('size')
+      .nodeLabel(node => `${node.name}${node.type === 'project' ? ' (Click to view)' : ''}`)
+      .nodeColor(node => groupColors[node.group] || '#00796b')
+      .linkWidth('value')
+      .linkOpacity(0.6)
+      .nodeOpacity(1)
+      .nodeThreeObject(node => {
+        const group = new THREE.Group();
+        
+        const material = new THREE.MeshLambertMaterial({ 
+          color: groupColors[node.group] || '#00796b',
+          transparent: true,
+          opacity: 0.9
+        });
+        
+        let geometry;
+        // Different shapes for different node types
+        if (node.type === 'person') {
+          geometry = new THREE.SphereGeometry(node.size/2.5);
+        } else {
+          geometry = new THREE.OctahedronGeometry(node.size/3, 1);
+        }
+        
+        const mesh = new THREE.Mesh(geometry, material);
+        group.add(mesh);
+        
+        // Add glow effect
+        const glowMaterial = new THREE.MeshBasicMaterial({
+          color: groupColors[node.group] || '#00796b',
+          transparent: true,
+          opacity: 0.2
+        });
+        const glowGeometry = node.type === 'person' 
+          ? new THREE.SphereGeometry(node.size/2.2) 
+          : new THREE.OctahedronGeometry(node.size/2.8, 1);
+        const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
+        group.add(glowMesh);
+        
+        // Add label
+        const sprite = new SpriteText(node.name);
+        sprite.color = '#ffffff';
+        sprite.textHeight = node.type === 'person' ? 6 : 3;
+        sprite.position.y = node.size/1.8;
+        group.add(sprite);
+        
+        return group;
+      })
+      .onNodeClick(node => {
+        if (node.gallery) {
+          openGallery(node.gallery);
+        }
+      })
+      .onNodeHover(node => {
+        container.style.cursor = node ? (node.gallery ? 'pointer' : 'default') : null;
+        
+        if (node) {
+          tooltip.innerHTML = `
+            <strong>${node.name}</strong><br>
+            ${node.description || ''}
+            ${node.gallery ? '<br><em>Click to view gallery</em>' : ''}
+          `;
+          tooltip.style.opacity = 1;
+          
+          // Position the tooltip near the mouse
+          document.addEventListener('mousemove', updateTooltipPosition);
+        } else {
+          tooltip.style.opacity = 0;
+          document.removeEventListener('mousemove', updateTooltipPosition);
+        }
+      })
+      .enableNodeDrag(false)
+      .enableNavigationControls(true)
+      .showNavInfo(false)
+      .cameraPosition({ z: 140 })
+      (container);
+      
+    // Update tooltip position based on mouse
+    function updateTooltipPosition(event) {
+      const rect = container.getBoundingClientRect();
+      const x = event.clientX - rect.left + 15;
+      const y = event.clientY - rect.top + 15;
+      
+      tooltip.style.left = `${x}px`;
+      tooltip.style.top = `${y}px`;
+    }
+    
+    // Add rotation animation
+    let rotation = false;
+    let angle = 0;
+    
+    function animate() {
+      if (rotation) {
+        angle += 0.002;
+        const distance = 140;
+        Graph.cameraPosition({
+          x: distance * Math.sin(angle),
+          z: distance * Math.cos(angle)
+        });
+      }
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    // Add event listeners for controls
+    document.getElementById('reset-camera').addEventListener('click', () => {
+      Graph.cameraPosition({ x: 0, y: 0, z: 140 }, { x: 0, y: 0, z: 0 }, 1000);
+    });
+    
+    document.getElementById('toggle-rotation').addEventListener('click', (e) => {
+      rotation = !rotation;
+      e.target.innerHTML = rotation ? 
+        '<i class="bi bi-pause-circle"></i> Stop' : 
+        '<i class="bi bi-arrow-repeat"></i> Rotate';
+    });
+  });
+
+
+
+
+
+
+  // GitHub integration
+document.addEventListener('DOMContentLoaded', function() {
+    // Only initialize if the container exists
+    const githubSection = document.getElementById('github-projects');
+    if (!githubSection) return;
+    
+    const username = 'SUPERINTIALD'; // Your GitHub username
+    
+    // Load GitHub profile
+    fetchGitHubProfile(username);
+    
+    // Load GitHub trophies
+    displayGitHubTrophies(username);
+    
+    // Load repositories
+    fetchGitHubRepos(username);
+    
+    /**
+     * Fetches GitHub user profile data and renders it
+     */
+    function fetchGitHubProfile(username) {
+        const profileContainer = document.getElementById('github-profile');
+        
+        fetch(`https://api.github.com/users/${username}`)
+            .then(response => response.json())
+            .then(data => {
+                profileContainer.innerHTML = `
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-right">
+                        <div class="card h-100">
+                            <div class="text-center pt-4">
+                                <img src="${data.avatar_url}" alt="${username}" class="rounded-circle" width="150">
+                            </div>
+                            <div class="card-body text-center">
+                                <h3 class="card-title">${data.name || username}</h3>
+                                <p class="text-muted">${data.bio || ''}</p>
+                                <div class="d-flex justify-content-center mb-3">
+                                    <div class="px-3"><i class="bi bi-people"></i> ${data.followers} followers</div>
+                                    <div class="px-3"><i class="bi bi-person"></i> ${data.following} following</div>
+                                </div>
+                                <div class="mb-3"><i class="bi bi-code-square"></i> ${data.public_repos} repositories</div>
+                                <a href="${data.html_url}" class="btn btn-primary" target="_blank">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6" data-aos="fade-left">
+                        <h3>GitHub Activity</h3>
+                        <p>Check out my latest projects and contributions on GitHub. I'm actively working on web development, AI, and software engineering projects.</p>
+                        <p>My coding activity reflects my interests in ${data.public_repos} public repositories spanning various technologies and domains.</p>
+                        <div class="mt-4">
+                            <h5>Contribution Statistics</h5>
+                            <img src="https://github-readme-stats.vercel.app/api?username=SUPERINTIALD&show_icons=true&icon_color=00796b&title_color=00796b&text_color=000000&bg_color=ffffff&hide_border=false&border_color=00796b" 
+                                 alt="${username}'s GitHub stats" class="img-fluid">
+                        </div>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                console.error('Error fetching GitHub profile:', error);
+                profileContainer.innerHTML = `<div class="col-12 text-center"><p class="text-danger">Unable to load GitHub profile. Please try again later.</p></div>`;
+            });
+    }
+    
+    /**
+     * Displays GitHub trophies using the github-profile-trophy service
+     */
+    function displayGitHubTrophies(username) {
+        const trophiesContainer = document.getElementById('github-trophies');
+        
+        trophiesContainer.innerHTML = `
+        `;
+    }
+    
+    
+    /**
+     * Fetches and displays GitHub repositories
+     */
+    function fetchGitHubRepos(username) {
+        const reposContainer = document.getElementById('github-repositories');
+        
+        // Show loading indicator
+        reposContainer.innerHTML = `
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading repositories...</span>
+                </div>
+                <p class="mt-2">Loading repositories...</p>
+            </div>
+        `;
+        
+        fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=8`)
+            .then(response => response.json())
+            .then(repos => {
+                reposContainer.innerHTML = '<h3 class="col-12 mb-4" data-aos="fade-up">Featured Repositories</h3>';
+                
+                repos.forEach(repo => {
+                    const updatedDate = new Date(repo.updated_at).toLocaleDateString();
+                    
+                    const repoElement = document.createElement('div');
+                    repoElement.className = 'col-md-6 col-lg-4 mb-4';
+                    repoElement.setAttribute('data-aos', 'fade-up');
+                    repoElement.setAttribute('data-aos-delay', '100');
+                    
+                    repoElement.innerHTML = `
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">${repo.name}</h5>
+                                <p class="card-text small text-muted">${repo.description || 'No description available'}</p>
+                                <div class="mb-2">
+                                    <span class="badge bg-primary me-1">${repo.language || 'N/A'}</span>
+                                    <small class="text-muted">Updated: ${updatedDate}</small>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span title="Stars"><i class="bi bi-star"></i> ${repo.stargazers_count}</span>
+                                        <span class="ms-2" title="Forks"><i class="bi bi-diagram-2"></i> ${repo.forks_count}</span>
+                                    </div>
+                                    <a href="${repo.html_url}" class="btn btn-sm btn-outline-primary" target="_blank">View Repo</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    reposContainer.appendChild(repoElement);
+                });
+                
+                // Re-initialize AOS for new content
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching repositories:', error);
+                reposContainer.innerHTML = `<div class="col-12 text-center"><p class="text-danger">Unable to load repositories. Please try again later.</p></div>`;
+            });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
