@@ -519,7 +519,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.image-container').forEach(container => {
             const img = container.querySelector('img');
             const description = container.querySelector('.description');
-            description.style.height = `${img.clientHeight}px`;
+            // description.style.height = `${img.clientHeight}px`;
+            if (img && description) {
+                description.style.height = `${img.clientHeight}px`;
+            }
         });
     });
     
